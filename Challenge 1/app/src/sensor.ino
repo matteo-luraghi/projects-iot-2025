@@ -4,7 +4,7 @@
 #define PIN_TRIG 12
 #define PIN_ECHO 14
 
-#define uS_TO_S 1000000
+#define uS_TO_S_FACTOR 1000000
 #define TIME_TO_SLEEP 41
 
 // MAC address of the receiver
@@ -30,15 +30,13 @@ void OnDataRecv(const uint8_t *mac, const uint8_t *data, int len)
 void setup()
 {
   Serial.begin(115200);
-
-  // HC-SR04 setup
-  pinMode(PIN_TRIG, OUTPUT);
-  pinMode(PIN_ECHO, INPUT);
+  delay(2000);
 
   // ------------------------------------------------- WIFI MANAGEMENT
 
   // enable the wifi
   WiFi.mode(WIFI_STA);
+  delay(2000);
   // init the communication module
   esp_now_init();
 
@@ -49,42 +47,50 @@ void setup()
 
   // Peer Registration
   memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-  // the channel where the communication will happen
   peerInfo.channel = 0;
   peerInfo.encrypt = false;
   // Add peer
   esp_now_add_peer(&peerInfo);
 
+  // ------------------------------------------------ HC-SR04 MANAGEMENT
+
+  // HC-SR04 setup
+  pinMode(PIN_TRIG, OUTPUT);
+  pinMode(PIN_ECHO, INPUT);
+  delay(50);
+
   // ------------------------------------------- MEASUREMENTS MANAGEMENT
+
+  // Start a new measurement:
+  digitalWrite(PIN_TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(PIN_TRIG, LOW);
+
+  // Read the result:
+  int duration = pulseIn(PIN_ECHO, HIGH);
+  int distance = duration / 58;
+  Serial.print("Distance in CM: ");
+  Serial.println(distance);
+  Serial.println();
+
+  String message = (distance <= 50) ? "OCCUPIED" : "FREE";
+
+  // send message to sink node
+  esp_now_send(broadcastAddress, (uint8_t *)message.c_str(), message.length() + 1);
 
   // -------------------------------------------------- SLEEP MANAGEMENT
 
-  //TODO: check if you need to turn wifi off for better performance
+  WiFi.mode(WIFI_OFF);
+  delay(2000);
+
   Serial.println("Going to sleep now");
 
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
-  Serial.println("ESP32 sleep every " + String(TIME_TO_SLEEP));
-
   Serial.flush();
-
   // start the deep sleep
   esp_deep_sleep_start();
 }
 
-// TODO: remove the body of the loop (do everyting in setup and sleep)
 void loop()
 {
-  while (!Serial.available())
-    ; // Wait for input (loop over the serial until I write something in input)
-  // take the input from the serial monitor in vscode
-  String message = Serial.readStringUntil('\n');
-  // send the message to all the attached devices
-  /* esp_now_send(uint8_t *da, uint8_t *data, uint8_t *len)
-     Parameters:
-       uint8_t *da: array of the MAC address of the peer to which the data packet is sent.
-                    If the address is NULL, the data is sent to all addresses in the Communication Table (all the registered peers).
-       uint8_t *data: array with the data packet to be sent.
-       uint8_t len: length of the array of the data packet.
-  */
-  esp_now_send(broadcastAddress, (uint8_t *)message.c_str(), message.length() + 1);
 }
