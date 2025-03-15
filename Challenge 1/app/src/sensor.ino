@@ -78,7 +78,7 @@ void setup()
   String message = (distance <= 50) ? "OCCUPIED" : "FREE";
   esp_now_send(broadcastAddress, (uint8_t *)message.c_str(), message.length() + 1);
   // delay to show the successful message transmission
-  delay(50);
+  delay(10);
 
   // ------------------------------------------------ SLEEP MANAGEMENT
 
