@@ -5,6 +5,8 @@
 #define PIN_ECHO 14
 
 #define uS_TO_S_FACTOR 1000000
+// person code: 10772886
+// TIME_TO_SLEEP = (86 % 50) + 5 = 41s
 #define TIME_TO_SLEEP 41
 
 // MAC address of the receiver
@@ -22,64 +24,65 @@ void OnDataRecv(const uint8_t *mac, const uint8_t *data, int len)
 {
   Serial.print("Message received: ");
   char receivedString[len];
-  // copy in the char var the data up to the length defined (safer way I guess than access data directly)
   memcpy(receivedString, data, len);
   Serial.println(String(receivedString));
 }
 
 void setup()
 {
+
+  // ---------------------------------------------------- SERIAL SETUP
+
   Serial.begin(115200);
-  delay(2000);
 
-  // ------------------------------------------------- WIFI MANAGEMENT
+  // ------------------------------------------------------ WIFI SETUP
 
-  // enable the wifi
+  // enable wifi
   WiFi.mode(WIFI_STA);
   delay(2000);
   // init the communication module
   esp_now_init();
 
-  // send callback, called when the device sends a message
+  // setup callbacks
   esp_now_register_send_cb(OnDataSent);
-  // receive callback, called when the device receives a message
   esp_now_register_recv_cb(OnDataRecv);
 
-  // Peer Registration
+  // peer Registration
   memcpy(peerInfo.peer_addr, broadcastAddress, 6);
   peerInfo.channel = 0;
   peerInfo.encrypt = false;
-  // Add peer
+  // add peer
   esp_now_add_peer(&peerInfo);
 
-  // ------------------------------------------------ HC-SR04 MANAGEMENT
+  // --------------------------------------------------- HC-SR04 SETUP
 
   // HC-SR04 setup
+  // https://docs.wokwi.com/parts/wokwi-hc-sr04
   pinMode(PIN_TRIG, OUTPUT);
   pinMode(PIN_ECHO, INPUT);
-  delay(50);
 
-  // ------------------------------------------- MEASUREMENTS MANAGEMENT
+  // ----------------------------------------- MEASUREMENTS MANAGEMENT
 
-  // Start a new measurement:
+  // start a new measurement:
   digitalWrite(PIN_TRIG, HIGH);
   delayMicroseconds(10);
   digitalWrite(PIN_TRIG, LOW);
 
-  // Read the result:
+  // read the result:
   int duration = pulseIn(PIN_ECHO, HIGH);
   int distance = duration / 58;
   Serial.print("Distance in CM: ");
   Serial.println(distance);
-  Serial.println();
-
-  String message = (distance <= 50) ? "OCCUPIED" : "FREE";
 
   // send message to sink node
+  String message = (distance <= 50) ? "OCCUPIED" : "FREE";
   esp_now_send(broadcastAddress, (uint8_t *)message.c_str(), message.length() + 1);
+  // delay to show the successful message transmission
+  delay(50);
 
-  // -------------------------------------------------- SLEEP MANAGEMENT
+  // ------------------------------------------------ SLEEP MANAGEMENT
 
+  // turn wifi off
   WiFi.mode(WIFI_OFF);
   delay(2000);
 
