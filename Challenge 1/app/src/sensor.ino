@@ -32,6 +32,7 @@ void OnDataRecv(const uint8_t *mac, const uint8_t *data, int len) {
 void setup() {
 
   // ---------------------------------------------------- SERIAL SETUP
+  unsigned long idleStart = micros();
 
   Serial.begin(115200);
 
@@ -42,13 +43,20 @@ void setup() {
   pinMode(PIN_TRIG, OUTPUT);
   pinMode(PIN_ECHO, INPUT);
 
+  unsigned long idleEnd = micros();
+
   // ----------------------------------------- MEASUREMENTS MANAGEMENT
+
+  unsigned long measureStart = micros();
 
   // start a new measurement
   digitalWrite(PIN_TRIG, HIGH);
   delayMicroseconds(10);
   digitalWrite(PIN_TRIG, LOW);
 
+  unsigned long measureEnd = micros();
+
+  unsigned long idle2Start = micros();
   // read the result of the measurement
   int duration = pulseIn(PIN_ECHO, HIGH);
   // convert the result in centimeters
@@ -60,9 +68,13 @@ void setup() {
 
   Serial.println("Turning wifi on...");
 
+  unsigned long idle2End = micros();
+
+  unsigned long wifiStart = micros();
+
   // enable wifi
   WiFi.mode(WIFI_STA);
-  delay(2000);
+  delay(50);
   // initialize the communication module
   esp_now_init();
 
@@ -81,7 +93,9 @@ void setup() {
 
   // send message to the sink node
   String message = (distance <= 50) ? "OCCUPIED" : "FREE";
+  unsigned long txStart = micros();
   esp_now_send(broadcastAddress, (uint8_t *)message.c_str(), message.length() + 1);
+  unsigned long txEnd = micros();
   // delay to show the successful message transmission
   delay(10);
 
@@ -89,12 +103,23 @@ void setup() {
 
   // turn wifi off
   WiFi.mode(WIFI_OFF);
-  delay(2000);
+  unsigned long wifiEnd = micros();
+  unsigned long idle3Start = micros();
+  delay(50);
 
-  Serial.println("Going to sleep now");
+  //Serial.println("Going to sleep now");
 
   // set the wakeup after 41 seconds
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
+  unsigned long idle3End = micros();
+
+  Serial.print("Idle: "); Serial.println(idleEnd - idleStart);
+  Serial.print("Idle 2: "); Serial.println(idle2End - idle2Start);
+  Serial.print("Idle 3: "); Serial.println(idle3End - idle3Start);
+  Serial.print("Measurement: "); Serial.println(measureEnd - measureStart);
+  Serial.print("Wifi on: "); Serial.println(wifiEnd - wifiStart);
+  Serial.print("TX: "); Serial.println(txEnd - txStart);
+  
   Serial.flush();
   // start the deep sleep
   esp_deep_sleep_start();
