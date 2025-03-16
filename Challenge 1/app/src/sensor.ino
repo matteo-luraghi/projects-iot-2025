@@ -35,25 +35,6 @@ void setup() {
 
   Serial.begin(115200);
 
-  // ------------------------------------------------------ WIFI SETUP
-
-  // enable wifi
-  WiFi.mode(WIFI_STA);
-  delay(2000);
-  // initialize the communication module
-  esp_now_init();
-
-  // setup callbacks for message sending and receiving
-  esp_now_register_send_cb(OnDataSent);
-  esp_now_register_recv_cb(OnDataRecv);
-
-  // peer registration
-  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
-  peerInfo.channel = 0;
-  peerInfo.encrypt = false;
-  // add peer
-  esp_now_add_peer(&peerInfo);
-
   // --------------------------------------------------- HC-SR04 SETUP
 
   // HC-SR04 setup
@@ -74,6 +55,29 @@ void setup() {
   int distance = duration / 58;
   Serial.print("Distance in CM: ");
   Serial.println(distance);
+
+  // ------------------------------------------------------ WIFI SETUP
+
+  Serial.println("Turning wifi on...");
+
+  // enable wifi
+  WiFi.mode(WIFI_STA);
+  delay(2000);
+  // initialize the communication module
+  esp_now_init();
+
+  // setup callbacks for message sending and receiving
+  esp_now_register_send_cb(OnDataSent);
+  esp_now_register_recv_cb(OnDataRecv);
+
+  // peer registration
+  memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+  peerInfo.channel = 0;
+  peerInfo.encrypt = false;
+  // add peer
+  esp_now_add_peer(&peerInfo);
+
+  // ------------------------------------------------- MESSAGE SENDING
 
   // send message to the sink node
   String message = (distance <= 50) ? "OCCUPIED" : "FREE";
