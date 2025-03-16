@@ -1,0 +1,15 @@
+Final results:
+{
+    "transmission_power": {
+        "tx_19dBm": 1221.76,
+        "tx_2dBm": 797.2942857142858
+    },
+    "sensor_read": {
+        "sensor_reading": 466.7448062015504
+    },
+    "deep_sleep": {
+        "deep_sleep": 59.66093555093555,
+        "idle": 310.8785350318472,
+        "wifi_on": 776.6210256410257
+    }
+}
