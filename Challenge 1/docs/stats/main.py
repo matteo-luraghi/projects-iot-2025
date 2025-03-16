@@ -9,9 +9,8 @@ def compute_transmission_power():
         df = pd.read_csv(file_path)
         if "Data" in df.columns:
             filtered_avg = {
-                "tx_19dBm": df["Data"][df["Data"] >= 1100].mean(),
-                "tx_2dBm": df["Data"][(df["Data"] >= 750) & (df["Data"] < 1100)].mean(),
-                "transmission_idle": df["Data"][df["Data"] < 750].mean(),
+                "tx_19dBm": df["Data"][df["Data"] >= 1150].mean(),
+                "tx_2dBm": df["Data"][(df["Data"] >= 750) & (df["Data"] < 850)].mean(),
             }
         else:
             filtered_avg = None
@@ -29,7 +28,6 @@ def compute_sensor_read():
         if "Data" in df.columns:
             filtered_avg = {
                 "sensor_reading": df["Data"][df["Data"] > 460].mean(),
-                "sensor_idle": df["Data"][df["Data"] <= 460].mean(),
             }
         else:
             filtered_avg = None
@@ -48,7 +46,7 @@ def compute_deep_sleep():
             filtered_avg = {
                 "deep_sleep": df["Data"][df["Data"] < 100].mean(),
                 "idle": df["Data"][(df["Data"] >= 300) & (df["Data"] <= 320)].mean(),
-                "wifi_on": df["Data"][df["Data"] > 700].mean(),
+                "wifi_on": df["Data"][df["Data"] > 750].mean(),
             }
         else:
             filtered_avg = None
