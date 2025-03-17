@@ -19,6 +19,7 @@ unsigned long txEnd;
 
 // callback function on message sending
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  // the message has been sent, it's possible to end the duration measurement
   txEnd = micros();
   Serial.print("Send Status: ");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Ok" : "Error");
@@ -108,8 +109,6 @@ void setup() {
   unsigned long wifiEnd = micros();
   unsigned long idle3Start = micros();
   delay(50);
-
-  //Serial.println("Going to sleep now");
 
   // set the wakeup after 41 seconds
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
