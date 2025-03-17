@@ -15,8 +15,11 @@ uint8_t broadcastAddress[] = {0x8C, 0xAA, 0xB5, 0x84, 0xFB, 0x90};
 
 esp_now_peer_info_t peerInfo;
 
+unsigned long txEnd;
+
 // callback function on message sending
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+  txEnd = micros();
   Serial.print("Send Status: ");
   Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Ok" : "Error");
 }
@@ -95,7 +98,6 @@ void setup() {
   String message = (distance <= 50) ? "OCCUPIED" : "FREE";
   unsigned long txStart = micros();
   esp_now_send(broadcastAddress, (uint8_t *)message.c_str(), message.length() + 1);
-  unsigned long txEnd = micros();
   // delay to show the successful message transmission
   delay(10);
 
@@ -113,9 +115,7 @@ void setup() {
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
   unsigned long idle3End = micros();
 
-  Serial.print("Idle: "); Serial.println(idleEnd - idleStart);
-  Serial.print("Idle 2: "); Serial.println(idle2End - idle2Start);
-  Serial.print("Idle 3: "); Serial.println(idle3End - idle3Start);
+  Serial.print("Idle: "); Serial.println(idleEnd - idleStart + idle2End - idle2Start + idle3End - idle3Start);
   Serial.print("Measurement: "); Serial.println(measureEnd - measureStart);
   Serial.print("Wifi on: "); Serial.println(wifiEnd - wifiStart);
   Serial.print("TX: "); Serial.println(txEnd - txStart);

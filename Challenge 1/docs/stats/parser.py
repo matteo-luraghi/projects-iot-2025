@@ -6,7 +6,7 @@ log_file = "log.txt"  # Change this to your actual log file name
 csv_file = "state_durations.csv"
 
 # Regular expression to match the key-value pairs
-pattern = re.compile(r"(Idle|Idle 2|Idle 3|Measurement|Wifi on|TX):\s*(\d+)")
+pattern = re.compile(r"(Idle|Measurement|Wifi on|TX):\s*(\d+)")
 
 # Read the log file and extract data
 entries = []
@@ -24,7 +24,7 @@ with open(log_file, "r") as file:
         entries.append(entry)
 
 # Write to CSV (append mode)
-headers = ["Idle", "Idle 2", "Idle 3", "Measurement", "Wifi on", "TX"]
+headers = ["Idle", "Measurement", "Wifi on", "TX"]
 file_exists = False
 try:
     with open(csv_file, "r") as f:

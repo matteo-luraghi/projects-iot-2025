@@ -13,12 +13,10 @@ Distance in CM: 405
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 747
-Idle 2: 24162
-Idle 3: 49796
+Idle: 74707
 Measurement: 30
 Wifi on: 255936
-TX: 156
+TX: 729
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -34,12 +32,10 @@ Distance in CM: 405
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 730
-Idle 2: 24167
-Idle 3: 49800
+Idle: 74810
 Measurement: 31
-Wifi on: 247947
-TX: 156
+Wifi on: 8062827
+TX: 723
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -51,16 +47,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 405
+Distance in CM: 232
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 834
-Idle 2: 24177
-Idle 3: 49800
+Idle: 64773
 Measurement: 30
-Wifi on: 247443
-TX: 156
+Wifi on: 247285
+TX: 729
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -72,16 +66,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 405
+Distance in CM: 232
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 836
-Idle 2: 24175
-Idle 3: 49800
+Idle: 64645
 Measurement: 30
-Wifi on: 17083486
-TX: 156
+Wifi on: 248007
+TX: 729
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -93,37 +85,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 253
+Distance in CM: 232
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 883
-Idle 2: 15339
-Idle 3: 49800
-Measurement: 26
-Wifi on: 247933
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 253
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 854
-Idle 2: 15352
-Idle 3: 49800
+Idle: 64771
 Measurement: 30
-Wifi on: 247364
-TX: 156
+Wifi on: 247599
+TX: 730
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -135,205 +104,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 253
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 883
-Idle 2: 15351
-Idle 3: 49800
-Measurement: 30
-Wifi on: 9091679
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 253
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 882
-Idle 2: 15352
-Idle 3: 49800
-Measurement: 30
-Wifi on: 5643815
-TX: 155
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 70
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 883
-Idle 2: 4761
-Idle 3: 49800
-Measurement: 30
-Wifi on: 3358406
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 70
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 882
-Idle 2: 4761
-Idle 3: 49800
-Measurement: 30
-Wifi on: 1826099
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 70
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 836
-Idle 2: 4761
-Idle 3: 49800
-Measurement: 30
-Wifi on: 807384
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 70
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 819
-Idle 2: 4782
-Idle 3: 49800
-Measurement: 31
-Wifi on: 247871
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 17
+Distance in CM: 1
 Turning wifi on...
 Send Status: Ok
 Message received: OCCUPIED
-Idle: 835
-Idle 2: 1653
-Idle 3: 49800
+Idle: 51399
 Measurement: 30
-Wifi on: 247965
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 17
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 850
-Idle 2: 1656
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247965
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 17
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 837
-Idle 2: 1644
-Idle 3: 49800
-Measurement: 30
-Wifi on: 5244938
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 17
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 825
-Idle 2: 1627
-Idle 3: 49800
-Measurement: 30
-Wifi on: 248018
-TX: 157
+Wifi on: 247654
+TX: 725
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -349,12 +127,10 @@ Distance in CM: 2
 Turning wifi on...
 Send Status: Ok
 Message received: OCCUPIED
-Idle: 869
-Idle 2: 762
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247623
-TX: 157
+Idle: 51406
+Measurement: 31
+Wifi on: 247847
+TX: 725
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -370,12 +146,10 @@ Distance in CM: 2
 Turning wifi on...
 Send Status: Ok
 Message received: OCCUPIED
-Idle: 882
-Idle 2: 766
-Idle 3: 49800
+Idle: 51448
 Measurement: 27
 Wifi on: 247505
-TX: 157
+TX: 725
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -387,16 +161,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 2
+Distance in CM: 89
 Turning wifi on...
 Send Status: Ok
-Message received: OCCUPIED
-Idle: 850
-Idle 2: 774
-Idle 3: 49800
+Message received: FREE
+Idle: 56472
 Measurement: 30
-Wifi on: 247846
-TX: 157
+Wifi on: 247845
+TX: 722
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -408,16 +180,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 2
+Distance in CM: 89
 Turning wifi on...
 Send Status: Ok
-Message received: OCCUPIED
-Idle: 727
-Idle 2: 760
-Idle 3: 49800
+Message received: FREE
+Idle: 56362
 Measurement: 30
-Wifi on: 247347
-TX: 157
+Wifi on: 247287
+TX: 729
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -429,436 +199,14 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 138
+Distance in CM: 324
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 838
-Idle 2: 8706
-Idle 3: 49800
+Idle: 70104
 Measurement: 30
-Wifi on: 247709
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 138
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 835
-Idle 2: 8700
-Idle 3: 49800
-Measurement: 31
-Wifi on: 247918
-TX: 155
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 138
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 833
-Idle 2: 8704
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247916
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 138
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 836
-Idle 2: 8704
-Idle 3: 49800
-Measurement: 31
-Wifi on: 15817001
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 281
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 882
-Idle 2: 16999
-Idle 3: 49800
-Measurement: 30
-Wifi on: 4697131
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 281
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 836
-Idle 2: 16998
-Idle 3: 49800
-Measurement: 31
-Wifi on: 6498781
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 281
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 850
-Idle 2: 16999
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247622
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 203
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 818
-Idle 2: 12476
-Idle 3: 49800
-Measurement: 30
-Wifi on: 249175
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 203
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 836
-Idle 2: 12470
-Idle 3: 49800
-Measurement: 30
-Wifi on: 16807581
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 203
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 731
-Idle 2: 12471
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247643
-TX: 155
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 203
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 840
-Idle 2: 12471
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247838
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 124
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 845
-Idle 2: 7882
-Idle 3: 49800
-Measurement: 31
-Wifi on: 247831
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 124
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 883
-Idle 2: 7885
-Idle 3: 49800
-Measurement: 27
-Wifi on: 247387
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 124
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 883
-Idle 2: 7882
-Idle 3: 49800
-Measurement: 30
-Wifi on: 9019277
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 3
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 882
-Idle 2: 820
-Idle 3: 49800
-Measurement: 31
-Wifi on: 5608267
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 3
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 883
-Idle 2: 820
-Idle 3: 49800
-Measurement: 30
-Wifi on: 3326748
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 3
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 882
-Idle 2: 820
-Idle 3: 49800
-Measurement: 30
-Wifi on: 1808505
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 3
-Turning wifi on...
-Send Status: Ok
-Message received: OCCUPIED
-Idle: 883
-Idle 2: 820
-Idle 3: 49800
-Measurement: 30
-Wifi on: 793592
-TX: 157
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 307
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 840
-Idle 2: 18471
-Idle 3: 49800
-Measurement: 31
-Wifi on: 247837
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 307
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 727
-Idle 2: 18470
-Idle 3: 49800
-Measurement: 30
-Wifi on: 247637
-TX: 156
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:2
-load:0x3fff0030,len:1156
-load:0x40078000,len:11456
-ho 0 tail 12 room 4
-load:0x40080400,len:2972
-entry 0x400805dc
-Distance in CM: 307
-Turning wifi on...
-Send Status: Ok
-Message received: FREE
-Idle: 843
-Idle 2: 18461
-Idle 3: 49800
-Measurement: 31
 Wifi on: 248156
-TX: 156
+TX: 728
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -870,16 +218,52 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 307
+Distance in CM: 324
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 841
-Idle 2: 18472
-Idle 3: 49800
+Idle: 70042
+Measurement: 31
+Wifi on: 249849
+TX: 731
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 324
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 70150
+Measurement: 31
+Wifi on: 9112634
+TX: 730
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 2
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51396
 Measurement: 30
-Wifi on: 247837
-TX: 155
+Wifi on: 5678483
+TX: 725
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -891,16 +275,33 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 307
+Distance in CM: 2
 Turning wifi on...
 Send Status: Ok
-Message received: FREE
-Idle: 750
-Idle 2: 18469
-Idle 3: 49800
+Message received: OCCUPIED
+Idle: 51441
+Measurement: 31
+Wifi on: 3375355
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 42
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 53799
 Measurement: 30
-Wifi on: 247626
-TX: 156
+Wifi on: 1836825
+TX: 725
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
@@ -912,16 +313,508 @@ load:0x40078000,len:11456
 ho 0 tail 12 room 4
 load:0x40080400,len:2972
 entry 0x400805dc
-Distance in CM: 307
+Distance in CM: 42
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 53799
+Measurement: 30
+Wifi on: 814239
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 303
 Turning wifi on...
 Send Status: Ok
 Message received: FREE
-Idle: 835
-Idle 2: 18463
-Idle 3: 49800
+Idle: 68820
+Measurement: 31
+Wifi on: 247752
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 303
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 68869
+Measurement: 30
+Wifi on: 248081
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 303
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 68870
+Measurement: 31
+Wifi on: 247383
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 371
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 72861
+Measurement: 27
+Wifi on: 248094
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 371
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 72815
+Measurement: 30
+Wifi on: 247239
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 371
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 72825
+Measurement: 30
+Wifi on: 247445
+TX: 730
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 371
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 72861
+Measurement: 27
+Wifi on: 248094
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 117
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 58099
 Measurement: 30
 Wifi on: 248155
-TX: 156
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 117
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 58021
+Measurement: 30
+Wifi on: 247623
+TX: 730
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 117
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 58022
+Measurement: 30
+Wifi on: 247623
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 2
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51448
+Measurement: 27
+Wifi on: 247506
+TX: 726
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 1
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51399
+Measurement: 30
+Wifi on: 247655
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 2
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51395
+Measurement: 31
+Wifi on: 247668
+TX: 726
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 399
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 74464
+Measurement: 30
+Wifi on: 247485
+TX: 730
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 399
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 74444
+Measurement: 30
+Wifi on: 247826
+TX: 728
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 399
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 74471
+Measurement: 18
+Wifi on: 247429
+TX: 728
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 99
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 56961
+Measurement: 30
+Wifi on: 247683
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 99
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 57014
+Measurement: 30
+Wifi on: 247239
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 296
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 68504
+Measurement: 30
+Wifi on: 9034345
+TX: 730
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 7
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51739
+Measurement: 30
+Wifi on: 5621521
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 7
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51738
+Measurement: 30
+Wifi on: 3338530
+TX: 726
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 7
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 51738
+Measurement: 31
+Wifi on: 1816799
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 46
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 54032
+Measurement: 30
+Wifi on: 798758
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 46
+Turning wifi on...
+Send Status: Ok
+Message received: OCCUPIED
+Idle: 54035
+Measurement: 27
+Wifi on: 247918
+TX: 725
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 300
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 68729
+Measurement: 30
+Wifi on: 248325
+TX: 729
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+Distance in CM: 300
+Turning wifi on...
+Send Status: Ok
+Message received: FREE
+Idle: 68673
+Measurement: 31
+Wifi on: 247280
+TX: 730
 ets Jul 29 2019 12:21:46
 
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
