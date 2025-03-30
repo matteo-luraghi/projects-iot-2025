@@ -16,8 +16,6 @@ def main():
     ):
         raise PermissionError(f"The input file has been modified")
 
-    print("Starting sniffing...")
-
     parser = argparse.ArgumentParser(
         description="Call the corresponding answer function based on the argument passed."
     )

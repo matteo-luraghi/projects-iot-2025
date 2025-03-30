@@ -2,39 +2,67 @@ import pyshark
 
 
 def answer_q1():
-    print("QUESTION 1")
+    print("QUESTION 1\n")
+
     # Load the .pcapng file and apply a CoAP display filter
     packets = pyshark.FileCapture("./docs/challenge2.pcapng", display_filter="coap")
 
-    # Store requests by Message ID (MID)
+    # Store requests by Token
     requests = {}
     failed_responses = []
 
-    # Process packets
+    ########################### Process requests
     for pkt in packets:
         if not hasattr(pkt, "coap"):
             continue  # Skip non-CoAP packets
 
         coap_layer = pkt.coap
 
-        # Check if it's a Confirmable PUT request
-        if coap_layer.type == "0" and coap_layer.code == "3":
-            requests[coap_layer.mid] = pkt  # Store PUT request by MID
+        # Check if the packet has a Token
+        if not hasattr(coap_layer, "token"):
+            continue
+
+        token = coap_layer.token
+
+        if (
+            # check if it's a confirmable request
+            coap_layer.type == "0"
+            # check if it's a PUT request
+            and coap_layer.code == "3"
+            # check if it's a request to the local server
+            and pkt.ip.dst == "127.0.0.1"
+        ):
+            # store the request by its coap token
+            requests[token] = pkt
+
+    ########################### Process responses
+    for pkt in packets:
+        if not hasattr(pkt, "coap"):
+            continue  # Skip non-CoAP packets
+
+        coap_layer = pkt.coap
+
+        # Check if the packet has a Token
+        if not hasattr(coap_layer, "token"):
+            continue
+
+        token = coap_layer.token
 
         # Check if it's an error response (4.xx or 5.xx)
-        elif int(coap_layer.code.split(".")[0]) in [4, 5]:
-            if coap_layer.mid in requests:  # Match with the stored request
-                req_pkt = requests[coap_layer.mid]
+        if int(coap_layer.code) >= 128 and int(coap_layer.code) <= 165:
+            # check if the token is present in the requests keys
+            if token in requests:
+                req_pkt = requests[token]
 
-                # Ensure response is from localhost (127.0.0.1 or ::1)
-                if pkt.ip.src in ["127.0.0.1", "::1"]:
+                # check if it's a response from the local server
+                if pkt.ip.src == "127.0.0.1":
                     failed_responses.append((req_pkt, pkt))
 
     # Display failed transactions
     for req, resp in failed_responses:
         print("==== Failed CoAP PUT Request ====")
         print(
-            f"Time: {req.sniff_time}, MID: {req.coap.mid}, Source: {req.ip.src} → {req.ip.dst}"
+            f"Time: {req.sniff_time}, TOKEN: {req.coap.token}, Source: {req.ip.src} → {req.ip.dst}"
         )
         print(
             f"Request Payload: {req.coap.payload if hasattr(req.coap, 'payload') else 'N/A'}\n"
@@ -42,10 +70,12 @@ def answer_q1():
 
         print("==== CoAP Error Response ====")
         print(
-            f"Time: {resp.sniff_time}, MID: {resp.coap.mid}, Response Code: {resp.coap.code}, Source: {resp.ip.src} → {resp.ip.dst}"
+            f"Time: {resp.sniff_time}, TOKEN: {resp.coap.token}, Response Code: {resp.coap.code}, Source: {resp.ip.src} → {resp.ip.dst}"
         )
         print(
             f"Response Payload: {resp.coap.payload if hasattr(resp.coap, 'payload') else 'N/A'}\n"
         )
 
         print("=" * 50 + "\n")
+
+    print(len(failed_responses))
