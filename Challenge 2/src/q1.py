@@ -26,9 +26,9 @@ def answer_q1():
 
         if (
             # check if it's a confirmable request
-            coap_layer.type == "0"
+            int(coap_layer.type) == 0
             # check if it's a PUT request
-            and coap_layer.code == "3"
+            and int(coap_layer.code) == 3
             # check if it's a request to the local server
             and pkt.ip.dst == "127.0.0.1"
         ):
