@@ -10,6 +10,8 @@ def answer_q3():
 
     clients = []
 
+    #TODO: check if one client or more w same ip
+
     ########################### Process requests
     for pkt in packets:
         if not hasattr(pkt, "mqtt"):
@@ -24,6 +26,8 @@ def answer_q3():
             # check that the request is of type SUBSCRIBE
             int(mqtt_layer.msgtype) == 8
             and
+            "#" in mqtt_layer.topic
+            and
             # check if it's a request to the HiveMQ server
             (
                 pkt.ip.dst == "35.158.34.213"
@@ -32,11 +36,6 @@ def answer_q3():
             )
         ):
             print(mqtt_layer.topic)
-            print(pkt.ip.src)
-            try:
-                print(f"CLIENT ID: {mqtt_layer.cliend_id}")
-            except:
-                pass
 
             identifier = pkt.ip.src
             if identifier not in clients:
