@@ -2,8 +2,7 @@ import pyshark
 
 
 def answer_q5():
-
-    print("QUESTION 5")
+    print("QUESTION 5\n")
 
     # load the file and apply the filter
     packets = pyshark.FileCapture("./docs/challenge2.pcapng", display_filter="mqtt")
