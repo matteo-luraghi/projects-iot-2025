@@ -5,40 +5,22 @@ def answer_q3():
 
     print("QUESTION 3")
 
-    # Load the .pcapng file and apply a mqtt display filter
-    packets = pyshark.FileCapture("./docs/challenge2.pcapng", display_filter="mqtt")
+    # load the file and apply the filter
+    packets = pyshark.FileCapture(
+        "./docs/challenge2.pcapng",
+        display_filter="mqtt and mqtt.msgtype == 8 and mqtt.topic contains '#' and ip.dst==18.192.151.104",
+    )
 
-    clients = []
-
-    #TODO: check if one client or more w same ip
+    clients = set()
 
     ########################### Process requests
     for pkt in packets:
-        if not hasattr(pkt, "mqtt"):
-            continue  # Skip non-mqtt packets
-        if not hasattr(pkt, "ip"):
-            # print(dir(pkt.mqtt))
-            continue
-
         mqtt_layer = pkt.mqtt
 
-        if (
-            # check that the request is of type SUBSCRIBE
-            int(mqtt_layer.msgtype) == 8
-            and
-            "#" in mqtt_layer.topic
-            and
-            # check if it's a request to the HiveMQ server
-            (
-                pkt.ip.dst == "35.158.34.213"
-                or pkt.ip.dst == "35.158.43.69"
-                or pkt.ip.dst == "18.192.151.104"
-            )
-        ):
-            print(mqtt_layer.topic)
+        print(mqtt_layer.topic)
+        print(pkt.ip.src)
+        print(pkt.tcp.srcport)
 
-            identifier = pkt.ip.src
-            if identifier not in clients:
-                clients.append(identifier)
+        clients.add(pkt.tcp.srcport)
 
     print(clients, len(clients))

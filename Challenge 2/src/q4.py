@@ -5,15 +5,16 @@ def answer_q4():
 
     print("QUESTION 4")
 
-    # Load the .pcapng file and apply a mqtt display filter
+    # load the file and apply the filter
     packets = pyshark.FileCapture("./docs/challenge2.pcapng", display_filter="mqtt")
 
     clients = set()
 
     ########################### Process requests
     for pkt in packets:
+        # skip non mqtt packets
         if not hasattr(pkt, "mqtt"):
-            continue  # Skip non-mqtt packets
+            continue
 
         mqtt_layer = pkt.mqtt
 

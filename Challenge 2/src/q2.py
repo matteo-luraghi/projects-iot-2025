@@ -2,18 +2,18 @@ import pyshark
 
 
 def answer_q2():
-
     print("QUESTION 2\n")
 
-    # Load the .pcapng file and apply a CoAP display filter
+    # load the file and apply the filter
     packets = pyshark.FileCapture("./docs/challenge2.pcapng", display_filter="coap")
 
     resources = {}
 
     ########################### Process requests
     for pkt in packets:
+        # skip non coap packets
         if not hasattr(pkt, "coap"):
-            continue  # Skip non-CoAP packets
+            continue
 
         coap_layer = pkt.coap
 
