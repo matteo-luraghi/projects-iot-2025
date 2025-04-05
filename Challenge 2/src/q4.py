@@ -1,6 +1,5 @@
 import pyshark
 
-
 def answer_q4():
     print("QUESTION 4\n")
 
@@ -26,3 +25,6 @@ def answer_q4():
             clients.add(mqtt_layer.clientid)
 
     print(clients, len(clients))
+
+if __name__ == "__main__":
+    answer_q4()

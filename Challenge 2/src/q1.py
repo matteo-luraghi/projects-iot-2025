@@ -1,6 +1,5 @@
 import pyshark
 
-
 def answer_q1():
     print("QUESTION 1\n")
 
@@ -61,3 +60,6 @@ def answer_q1():
             failed_responses.append(pkt)
 
     print(len(failed_responses))
+
+if __name__ == "__main__":
+    answer_q1()

@@ -1,6 +1,5 @@
 import pyshark
 
-
 def answer_q6():
     print("QUESTION 6\n")
 
@@ -17,3 +16,6 @@ def answer_q6():
     for _ in packets:
         count += 1
     print(count)
+
+if __name__ == "__main__":
+    answer_q6()

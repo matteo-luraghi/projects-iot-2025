@@ -1,6 +1,5 @@
 import pyshark
 
-
 def answer_q2():
     print("QUESTION 2\n")
 
@@ -53,3 +52,6 @@ def answer_q2():
             print(resource)
             count += 1
     print(count)
+
+if __name__ == "__main__":
+    answer_q2()

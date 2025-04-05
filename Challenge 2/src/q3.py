@@ -1,6 +1,5 @@
 import pyshark
 
-
 def answer_q3():
     print("QUESTION 3\n")
 
@@ -22,7 +21,10 @@ def answer_q3():
         print(pkt.ip.src)
         print(pkt.tcp.srcport)
 
-        # save different clients based on the TCP connection port
-        clients.add(pkt.tcp.srcport)
+        # save different clients based on the IP address and the TCP connection port
+        clients.add((pkt.ip.src, pkt.tcp.srcport))
 
     print(clients, len(clients))
+
+if __name__ == "__main__":
+    answer_q3()
