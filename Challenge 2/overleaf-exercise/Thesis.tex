@@ -1,0 +1,310 @@
+% A LaTeX template for MSc Thesis submissions to 
+% Politecnico di Milano (PoliMi) - School of Industrial and Information Engineering
+%
+% S. Bonetti, A. Gruttadauria, G. Mescolini, A. Zingaro
+% e-mail: template-tesi-ingind@polimi.it
+%
+% Last Revision: October 2021
+%
+% Copyright 2021 Politecnico di Milano, Italy. NC-BY
+
+\documentclass{Configuration_Files/PoliMi3i_thesis}
+\usepackage{algorithm}
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+
+% CONFIGURATIONS
+\usepackage{parskip} % For paragraph layout
+\usepackage{setspace} % For using single or double spacing
+\usepackage{emptypage} % To insert empty pages
+\usepackage{multicol} % To write in multiple columns (executive summary)
+\setlength\columnsep{15pt} % Column separation in executive summary
+\setlength\parindent{0pt} % Indentation
+\raggedbottom  
+
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+% \titlespacing{\section}{left spacing}{before spacing}{after spacing}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+\usepackage{color}
+
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[english]{babel} % The document is in English  
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage[11pt]{moresize} % Big fonts
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\usepackage{transparent} % Enables transparent images
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat.
+\usepackage{tikz} % A package for high-quality hand-made figures.
+\usetikzlibrary{}
+\graphicspath{{./Images/}} % Directory of the images
+\usepackage{caption} % Coloured captions
+\usepackage{xcolor} % Coloured captions
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{float}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage[overload]{empheq} % For braced-style systems of equations.
+\usepackage{fix-cm} % To override original LaTeX restrictions on sizes
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % Tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{abbrvnat} % You may use a different style adapted to your field
+
+% OTHER PACKAGES
+\usepackage{pdfpages} % To include a pdf file
+\usepackage{afterpage}
+\usepackage{lipsum} % DUMMY PACKAGE
+\usepackage{fancyhdr} % For the headers
+\fancyhf{}
+
+% Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
+\input{Configuration_Files/config}
+
+%----------------------------------------------------------------------------
+%	NEW COMMANDS DEFINED
+%----------------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    urlcolor=blue,
+}
+\usepackage{listings}  % Package for code formatting
+\usepackage{xcolor}    % For color customization
+
+\lstdefinestyle{pythonStyle}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    frame=single,
+    breaklines=true
+}
+
+% EXAMPLES OF NEW COMMANDS
+\newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+
+%----------------------------------------------------------------------------
+%	BEGIN OF YOUR DOCUMENT
+%----------------------------------------------------------------------------
+
+\begin{document}
+
+\fancypagestyle{plain}{%
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%----------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------
+
+\pagestyle{empty} % No page numbers
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
+
+\puttitle{
+	title=IOT Challenge 2 - Exercise, % Title of the thesis
+	name=Matteo Leonardo Luraghi, % Author Name and Surname
+	course=, % Study Programme (in Italian)
+	ID  = 10772886,  % Student ID number (numero di matricola)
+	academicyear={2024-25},  % Academic Year
+} % These info will be put into your Title page 
+
+%----------------------------------------------------------------------------
+%	PREAMBLE PAGES: ABSTRACT (inglese e italiano), EXECUTIVE SUMMARY
+%----------------------------------------------------------------------------
+\startpreamble
+\setcounter{page}{1} % Set page counter to 1
+
+%----------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES/SYMBOLS
+%----------------------------------------------------------------------------
+
+% TABLE OF CONTENTS
+\thispagestyle{empty}
+\tableofcontents % Table of contents 
+\thispagestyle{empty}
+\cleardoublepage
+
+%-------------------------------------------------------------------------
+%	THESIS MAIN TEXT
+%-------------------------------------------------------------------------
+% In the main text of your thesis you can write the chapters in two different ways:
+%
+%(1) As presented in this template you can write:
+%    \chapter{Title of the chapter}
+%    *body of the chapter*
+%
+%(2) You can write your chapter in a separated .tex file and then include it in the main file with the following command:
+%    \chapter{Title of the chapter}
+%    \input{chapter_file.tex}
+%
+% Especially for long thesis, we recommend you the second option.
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+% --------------------------------------------------------------------------
+% NUMBERED CHAPTERS % Regular chapters following
+% --------------------------------------------------------------------------
+
+\cleardoublepage
+
+\chapter{EQ1}
+
+\section{EQ1.a}
+In this scenario, the temperature sensor acts as the CoAP server, as it holds the temperature measurement resource.
+
+The valve initiates communication by sending a GET request to the sensor, enabling observe mode. This allows the sensor to automatically push updated temperature values to the valve every 5 minutes, without requiring additional requests from the valve.
+
+The GET request is sent as a non-confirmable message to minimize energy consumption, which is feasible given the fact that the Wi-Fi network is ideal.
+
+\subsection{Energy Consumption of the Valve}
+To compute the energy $E_V$ used by the valve, we take into account:
+\begin{itemize}
+    \item the transmission of the first GET request ($60B$), where the observation mode is set
+    \item the receptions of the GET responses ($55B$) from the valve, that happen every 5 minutes: $60/5=12$ receptions per hour
+    \item the 2 processing per hour of the average temperature (1 every 30 minutes)
+\end{itemize}
+
+\begin{equation}
+    E_{V} = E_{TX}*60*8  [nJ] + 12*24*E_{RX}*55*8  [nJ] + 2*24*E_c [mJ] = 122.57 [mJ]
+\end{equation}
+
+\newpage
+\subsection{Energy Consumption of the Temperature Sensor}
+To compute the energy $E_S$ of the temperature sensor, we take into account:
+\begin{itemize}
+    \item the reception of the first GET request ($60B$)
+    \item the 12 GET response transmissions per hour containing the new temperature value ($55B$)
+\end{itemize}
+\begin{equation}
+    E_S = E_{RX}*60*8  [nJ] + 12*24*E_{TX}*55*8  [nJ] = 6.36 [mJ]
+\end{equation}
+
+\subsection{Total Energy Consumption}
+The total energy consumed by the valve and the temperature sensor is given by:
+\begin{equation}
+    E = E_V + E_T = 128.93 [mJ]
+\end{equation}
+
+\newpage
+\section{EQ1.b}
+In this scenario, the Raspberry Pi acts as an MQTT broker.
+
+The temperature sensor sends data every 5 minutes to the MQTT broker, so a 7-minute keepalive interval should be sufficient. This way, no PING messages are necessary, as the broker will assume the sensor has failed if it doesn’t receive a message within that time frame.
+
+On the other hand, the valve needs to send ping messages, since once it subscribes to the temperature topic, it won't communicate with the broker again. A 5-minute keepalive interval is sufficient to guarantee that the valve gets the updates of the temperature needed to compute the average temperature.
+
+We use QoS 0 because the network is reliable, which helps reduce energy consumption. Consequently, the broker won't send PUBACK messages to the temperature sensor every time it receives a PUBLISH message.
+
+For both the valve and the sensor, the first messages exchanged with the broker will be the CONNECT and CONNACK messages.
+
+\subsection{Energy Consumption of the Valve}
+To compute the energy $E_V$ used by the valve, we take into account:
+\begin{itemize}
+    \item the transmission of the CONNECT message ($54B$)
+    \item the reception of the CONNACK message ($47B$)
+    \item the transmission of the SUBSCRIBE message ($58B$)
+    \item the reception of the SUBACK message ($52B$)
+    \item the transmission every 5 minutes of the PINGREQ message ($52B$): $60/5=12$ messages per hour
+    \item the reception every 5 minutes of the PINGRES message ($48B$)
+    \item the reception of the PUBLISH message containing the updated value of the temperature 12 times per hour ($68B$)
+    \item the 2 processing per hour of the average temperature (1 every 30 minutes)
+\end{itemize}
+
+\begin{equation}
+ \begin{aligned}
+    E_{V} = E_{TX}*54*8 [nJ] + E_{RX}*47*8 [nJ] &+ \\
+    E_{TX}*58*8 [nJ] + E_{RX}*52*8 [nJ] &+ \\
+    12*24*(E_{TX}*52*8 + E_{RX}*48*8) &+ \\
+    12*24*E_{RX}*68*8 &+ \\
+    2*24*E_c [mJ] &= 136.78 [mJ]
+ \end{aligned}
+\end{equation}
+
+\subsection{Energy Consumption of the Temperature Sensor}
+To compute the energy $E_S$ of the temperature sensor, we take into account:
+\begin{itemize}
+    \item the transmission of the CONNECT message ($54B$)
+    \item the reception of the CONNACK message ($47B$)
+    \item the transmission of the PUBLISH message containing the updated value of the temperature 12 times per hour ($68B$)
+\end{itemize}
+\begin{equation}
+    E_S = E_{TX}*54*8 [nJ] + E_{RX}*47*8 [nJ] + 12*24*E_{TX}*68*8 [nJ] = 7.88 [mJ]
+\end{equation}
+
+\subsection{Total Energy Consumption}
+The total energy consumed by the valve and the temperature sensor is given by:
+\begin{equation}
+    E = E_V + E_T = 144.66 [mJ]
+\end{equation}
+
+\chapter{EQ2}
+\section{Methodology}
+Since computing the average temperature every 30 minutes is the most energy-intensive task, energy consumption could be reduced by offloading this computation to the Raspberry Pi (which is likely connected to a constant power source).
+
+In this setup, the Raspberry Pi would run both the MQTT broker and an MQTT client. The sensor publishes temperature readings to a specific topic (for example sensor/temp), which the Raspberry Pi’s client subscribes to to collect and process the average.
+
+The client running on the Raspberry Pi computes the average temperature every 30 minutes and publishes a control message (OPEN or CLOSE) to another topic (for example valve/control). 
+
+The valve subscribes to this control topic. This way, it no longer performs any computation, but only reacts to commands, significantly reducing its energy usage.
+
+\newpage
+\subsection{Energy Consumption of the Valve}
+In this new scenario, the energy consumption of the temperature sensor remains the same as before ($7.88$ $mJ$), while the new energy $E_V$ of the valve takes into account:
+
+\begin{itemize}
+    \item the transmission of the CONNECT message ($54B$)
+    \item the reception of the CONNACK message ($47B$)
+    \item the transmission of the SUBSCRIBE message ($58B$)
+    \item the reception of the SUBACK message ($52B$)
+    \item the transmission every 5 minutes of the PINGREQ message ($52B$): $60/5=12$ messages per hour
+    \item the reception every 5 minutes of the PINGRES message ($48B$)
+    \item the reception of the PUBLISH message containing the command to either close or open 12 times per hour ($68B$)
+\end{itemize}
+
+\begin{equation}
+ \begin{aligned}
+    E_{V} = E_{TX}*54*8 [nJ] + E_{RX}*47*8 [nJ] &+ \\
+    E_{TX}*58*8 [nJ] + E_{RX}*52*8 [nJ] &+ \\
+    12*24*(E_{TX}*52*8 + E_{RX}*48*8) &+ \\
+    12*24*E_{RX}*68*8 &= 21.58 [mJ]
+ \end{aligned}
+\end{equation}
+
+\subsection{Total Energy Consumption}
+The total energy consumed by the valve and the temperature sensor is given by:
+\begin{equation}
+    E = E_V + E_T = 29.46 [mJ]
+\end{equation}
+
+\end{document}

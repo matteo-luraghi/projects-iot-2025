@@ -1,0 +1,338 @@
+% A LaTeX template for MSc Thesis submissions to 
+% Politecnico di Milano (PoliMi) - School of Industrial and Information Engineering
+%
+% S. Bonetti, A. Gruttadauria, G. Mescolini, A. Zingaro
+% e-mail: template-tesi-ingind@polimi.it
+%
+% Last Revision: October 2021
+%
+% Copyright 2021 Politecnico di Milano, Italy. NC-BY
+
+\documentclass{Configuration_Files/PoliMi3i_thesis}
+\usepackage{algorithm}
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+
+% CONFIGURATIONS
+\usepackage{parskip} % For paragraph layout
+\usepackage{setspace} % For using single or double spacing
+\usepackage{emptypage} % To insert empty pages
+\usepackage{multicol} % To write in multiple columns (executive summary)
+\setlength\columnsep{15pt} % Column separation in executive summary
+\setlength\parindent{0pt} % Indentation
+\raggedbottom  
+
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+% \titlespacing{\section}{left spacing}{before spacing}{after spacing}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+\usepackage{color}
+
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[english]{babel} % The document is in English  
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage[11pt]{moresize} % Big fonts
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\usepackage{transparent} % Enables transparent images
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat.
+\usepackage{tikz} % A package for high-quality hand-made figures.
+\usetikzlibrary{}
+\graphicspath{{./Images/}} % Directory of the images
+\usepackage{caption} % Coloured captions
+\usepackage{xcolor} % Coloured captions
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{float}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage[overload]{empheq} % For braced-style systems of equations.
+\usepackage{fix-cm} % To override original LaTeX restrictions on sizes
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % Tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{abbrvnat} % You may use a different style adapted to your field
+
+% OTHER PACKAGES
+\usepackage{pdfpages} % To include a pdf file
+\usepackage{afterpage}
+\usepackage{lipsum} % DUMMY PACKAGE
+\usepackage{fancyhdr} % For the headers
+\fancyhf{}
+
+% Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
+\input{Configuration_Files/config}
+
+%----------------------------------------------------------------------------
+%	NEW COMMANDS DEFINED
+%----------------------------------------------------------------------------
+\usepackage[most]{tcolorbox}
+\tcbset{
+  questionbox/.style={
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    title=Question,
+    boxrule=0.8pt,
+    arc=4pt,
+    outer arc=4pt,
+    boxsep=5pt,
+    left=5pt,
+    right=5pt,
+    top=5pt,
+    bottom=5pt,
+  }
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    urlcolor=blue,
+}
+\usepackage{listings}  % Package for code formatting
+\usepackage{xcolor}    % For color customization
+
+\lstdefinestyle{pythonStyle}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    frame=single,
+    breaklines=true
+}
+
+% EXAMPLES OF NEW COMMANDS
+\newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+
+%----------------------------------------------------------------------------
+%	BEGIN OF YOUR DOCUMENT
+%----------------------------------------------------------------------------
+
+\begin{document}
+
+\fancypagestyle{plain}{%
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%----------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------
+
+\pagestyle{empty} % No page numbers
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
+
+\puttitle{
+	title=IOT Challenge 2, % Title of the thesis
+	name=Matteo Leonardo Luraghi, % Author Name and Surname
+	course=, % Study Programme (in Italian)
+	ID  = 10772886,  % Student ID number (numero di matricola)
+	academicyear={2024-25},  % Academic Year
+} % These info will be put into your Title page 
+
+%----------------------------------------------------------------------------
+%	PREAMBLE PAGES: ABSTRACT (inglese e italiano), EXECUTIVE SUMMARY
+%----------------------------------------------------------------------------
+\startpreamble
+\setcounter{page}{1} % Set page counter to 1
+
+%----------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES/SYMBOLS
+%----------------------------------------------------------------------------
+
+% TABLE OF CONTENTS
+\thispagestyle{empty}
+\tableofcontents % Table of contents 
+\thispagestyle{empty}
+\cleardoublepage
+
+%-------------------------------------------------------------------------
+%	THESIS MAIN TEXT
+%-------------------------------------------------------------------------
+% In the main text of your thesis you can write the chapters in two different ways:
+%
+%(1) As presented in this template you can write:
+%    \chapter{Title of the chapter}
+%    *body of the chapter*
+%
+%(2) You can write your chapter in a separated .tex file and then include it in the main file with the following command:
+%    \chapter{Title of the chapter}
+%    \input{chapter_file.tex}
+%
+% Especially for long thesis, we recommend you the second option.
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+% --------------------------------------------------------------------------
+% NUMBERED CHAPTERS % Regular chapters following
+% --------------------------------------------------------------------------
+
+\chapter{Introduction}
+To answer the following questions, I parsed the \texttt{pcapng} file using the \texttt{pyshark} library. This allowed me to filter and analyze network traffic to extract relevant information, such as MQTT and CoAP messages, along with specific attributes like topics, request types, and responses. The parsed data was then processed using Python to identify patterns, count occurrences, and match conditions required for each question.
+
+\chapter{CQ 1}
+\begin{tcolorbox}[questionbox]
+    How many different Confirmable PUT requests obtained an unsuccessful response from the local CoAP server?
+\end{tcolorbox}
+
+To answer this question, the process is divided into two parts: processing the requests and processing the responses.
+
+\textbf{1. Processing the Confirmable PUT Requests:}
+
+I filtered the messages to identify the confirmable PUT requests sent to the local CoAP server using the following criteria:
+\begin{itemize}
+  \item \texttt{coap\_layer.type == 0} to filter confirmable requests
+  \item \texttt{coap\_layer.code == 3} to filter PUT requests
+  \item \texttt{pkt.ip.dst == 127.0.0.1} to filter requests directed to the local server
+\end{itemize}
+
+For each matching request, I saved its token into a Python \texttt{set}.
+
+\textbf{2. Processing the Responses:}
+
+To process the responses, I filtered the packets to identify error responses:
+\begin{itemize}
+  \item \texttt{coap\_layer.code >= 128 \&\& coap\_layer.code <= 165} to filter error responses
+  \item \texttt{token in requests} to ensure the response corresponds to a previous valid request
+  \item \texttt{pkt.ip.src == 127.0.0.1} to confirm the response is from the local server
+\end{itemize}
+
+If a response matched all of these criteria, I added it to a Python \texttt{list}.
+
+The result is the length of the final list which is \textbf{22 different requests}.
+
+\lstinputlisting[style=pythonStyle]{src/q1.py}
+
+\chapter{CQ 2}
+\begin{tcolorbox}[questionbox]
+    How many CoAP resources in the coap.me public server received the same number of unique Confirmable and Non Confirmable GET requests?
+\end{tcolorbox}
+
+To answer this question, I applied a filter to capture all GET requests sent to the public coap.me server:
+
+\begin{itemize}
+  \item \texttt{coap.code==1} to select only \texttt{GET} requests
+  \item \texttt{ip.dst==134.102.218.18} to isolate requests directed to the \texttt{coap.me} server
+\end{itemize}
+
+Next, I used a Python dictionary to keep track of each CoAP resource, recording the number of confirmable and non-confirmable GET requests it received.
+
+Finally, I counted how many resources had equal confirmable and non-confirmable GET requests.  
+The result was \textbf{3 resources}.
+
+\lstinputlisting[style=pythonStyle]{src/q2.py}
+
+\chapter{CQ 3}
+\begin{tcolorbox}[questionbox]
+    How many different MQTT clients subscribe to the public broker HiveMQ using multi-level wildcards?
+\end{tcolorbox}
+
+To answer this question, I applied a filter to capture all SUBSCRIBE messages directed to the public HiveMQ broker that include the multi-level wildcard (\#) in the topic:
+\begin{itemize}
+    \item \texttt{mqtt.msgtype==8} to select only \texttt{SUBSCRIBE} messages
+    \item \texttt{topic contains '\#'} to identify subscriptions using the multi-level wildcard
+    \item \texttt{ip.dst==18.192.151.104} to isolate messages sent to the public HiveMQ broker
+\end{itemize}
+
+To determine how many different clients performed such subscriptions, I tracked unique combinations of client IP address and TCP port using a Python \texttt{set}.
+
+The result was \textbf{4 distinct clients}.
+
+\lstinputlisting[style=pythonStyle]{src/q3.py}
+
+\chapter{CQ 4}
+\begin{tcolorbox}[questionbox]
+    How many different MQTT clients specify a last Will Message to be directed to a topic having as first level "university"?
+\end{tcolorbox}
+
+To answer this question, I applied a filter to identify MQTT CONNECT messages that specify a last will message:
+\begin{itemize}
+  \item \texttt{mqtt.msgtype==1} filters for CONNECT messages
+  \item \texttt{mqtt.willtopic\_len!=0} selects clients that define a last will topic
+\end{itemize}
+
+Then, I verified that the specified Last Will topic starts with \texttt{"university"} as the first-level topic.  
+Using a Python \texttt{set}, I tracked the unique client identifiers that met both conditions.
+
+As a result, I found that \textbf{only 1 distinct MQTT client} matches the conditions.
+
+\lstinputlisting[style=pythonStyle]{src/q4.py}
+
+\chapter{CQ 5}
+\begin{tcolorbox}[questionbox]
+    How many MQTT subscribers receive a last will message derived from a subscription without a wildcard?
+\end{tcolorbox}
+
+To answer this question, I followed a the following process:
+
+\textbf{1. Iterating Over MQTT Packets:}
+
+I began by iterating over all MQTT packets to find clients' specified last will messages and their associated topics. I saved this information in a Python \texttt{dictionary}, where the keys were the topics and the values were the last will messages.
+
+\textbf{2. Counting Subscribers per Topic:}
+
+For each of these topics, I counted the number of subscribers by checking all the SUBSCRIBE messages that didn't contain any wildcard (+, \#) in the subscribing topic, and stored this information in another dictionary, indexed by the topic name.
+
+\textbf{3. Matching PUBLISH Messages to Last Will Messages:}
+
+I then searched for PUBLISH messages where the topic matched one of the topics that had a last will message set. I compared the content of the PUBLISH message with the last will message defined during connection. If they matched, I added the number of subscribers for that topic to a counter. After processing, I reset the subscriber count for the topic, as the client providing the topic had failed.
+
+The result was \textbf{3 subscribers}.
+
+\lstinputlisting[style=pythonStyle]{src/q5.py}
+
+\chapter{CQ 6}
+\begin{tcolorbox}[questionbox]
+    How many MQTT publish messages directed to the public broker mosquitto are sent with the retain option and use QoS “At most once”?
+\end{tcolorbox}
+
+To answer this question, I applied the following filter to count the relevant MQTT messages:
+\begin{itemize}
+    \item \texttt{mqtt.msgtype==3} to select only PUBLISH messages
+    \item \texttt{mqtt.retain==True} to include only messages with the retain flag set
+    \item \texttt{mqtt.qos==0} to filter messages using the "At most once" QoS level (QoS 0)
+    \item \texttt{ip.dst==5.196.78.28} to target messages sent to the public Mosquitto broker
+\end{itemize}
+
+I found that \textbf{208 MQTT publish messages} match all these criteria.
+
+\lstinputlisting[style=pythonStyle]{src/q6.py}
+
+\chapter{CQ 7}
+\begin{tcolorbox}[questionbox]
+    How many MQTT-SN messages on port 1885 are sent by the clients to a broker in the local machine?
+\end{tcolorbox}
+
+To answer this question, I applied a filter for UDP traffic on port 1885, as MQTT-SN uses UDP and the question explicitly mentions this port. The filter returned zero matching packets, indicating that no MQTT-SN messages were sent by clients to the broker on the local machine using port 1885. Therefore, the answer is \textbf{0}.
+
+\lstinputlisting[style=pythonStyle]{src/q7.py}
+\cleardoublepage
+
+\end{document}
