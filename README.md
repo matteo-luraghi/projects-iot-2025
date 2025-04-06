@@ -7,10 +7,10 @@ Here you'll find all my solutions and documentation for the in-course challenges
 
 ## 📁 Contents
 
-- 🔧 [Challenge 1](#🔧-challenge-1) — [📂 Folder](challenge-1/)
-- 📡 [Challenge 2](#📡-challenge-2) — [📂 Folder](challenge-2/)
-- 🔒 [Challenge 3](#🔒-challenge-3) — [📂 Folder](challenge-3/)
-- 🧠 [Homework](#🧠-homework) — [📂 Folder](homework/)
+- 🔧 [Challenge 1](#-challenge-1) — [📂 Folder](challenge-1/)
+- 📡 [Challenge 2](#-challenge-2) — [📂 Folder](challenge-2/)
+- 🔒 [Challenge 3](#-challenge-3) — [📂 Folder](challenge-3/)
+- 🧠 [Homework](#-homework) — [📂 Folder](homework/)
 
 ---
 
