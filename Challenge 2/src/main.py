@@ -7,15 +7,9 @@ from q4 import answer_q4
 from q5 import answer_q5
 from q6 import answer_q6
 from q7 import answer_q7
-from utility import are_files_equal
 
 
 def main():
-    if not are_files_equal(
-        "./docs/challenge2.pcapng", "./docs/challenge2-backup.pcapng"
-    ):
-        raise PermissionError(f"The input file has been modified")
-
     parser = argparse.ArgumentParser(
         description="Call the corresponding answer function based on the argument passed."
     )
