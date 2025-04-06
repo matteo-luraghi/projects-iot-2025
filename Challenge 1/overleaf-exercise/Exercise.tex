@@ -1,0 +1,294 @@
+% A LaTeX template for MSc Thesis submissions to 
+% Politecnico di Milano (PoliMi) - School of Industrial and Information Engineering
+%
+% S. Bonetti, A. Gruttadauria, G. Mescolini, A. Zingaro
+% e-mail: template-tesi-ingind@polimi.it
+%
+% Last Revision: October 2021
+%
+% Copyright 2021 Politecnico di Milano, Italy. NC-BY
+
+\documentclass{Configuration_Files/PoliMi3i_thesis}
+\usepackage{algorithm}
+%------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND  CONFIGURATIONS
+%------------------------------------------------------------------------------
+
+% CONFIGURATIONS
+\usepackage{parskip} % For paragraph layout
+\usepackage{setspace} % For using single or double spacing
+\usepackage{emptypage} % To insert empty pages
+\usepackage{multicol} % To write in multiple columns (executive summary)
+\setlength\columnsep{15pt} % Column separation in executive summary
+\setlength\parindent{0pt} % Indentation
+\raggedbottom  
+
+% PACKAGES FOR TITLES
+\usepackage{titlesec}
+% \titlespacing{\section}{left spacing}{before spacing}{after spacing}
+\titlespacing{\section}{0pt}{3.3ex}{2ex}
+\titlespacing{\subsection}{0pt}{3.3ex}{1.65ex}
+\titlespacing{\subsubsection}{0pt}{3.3ex}{1ex}
+\usepackage{color}
+
+% PACKAGES FOR LANGUAGE AND FONT
+\usepackage[english]{babel} % The document is in English  
+\usepackage[utf8]{inputenc} % UTF8 encoding
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage{booktabs} % For professional-quality tables
+\usepackage[11pt]{moresize} % Big fonts
+
+% PACKAGES FOR IMAGES
+\usepackage{graphicx}
+\usepackage{transparent} % Enables transparent images
+\usepackage{eso-pic} % For the background picture on the title page
+\usepackage{subfig} % Numbered and caption subfigures using \subfloat.
+\usepackage{tikz} % A package for high-quality hand-made figures.
+\usetikzlibrary{}
+\graphicspath{{./Images/}} % Directory of the images
+\usepackage{caption} % Coloured captions
+\usepackage{xcolor} % Coloured captions
+\usepackage{amsthm,thmtools,xcolor} % Coloured "Theorem"
+\usepackage{float}
+
+% STANDARD MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage[overload]{empheq} % For braced-style systems of equations.
+\usepackage{fix-cm} % To override original LaTeX restrictions on sizes
+
+% PACKAGES FOR TABLES
+\usepackage{tabularx}
+\usepackage{longtable} % Tables that can span several pages
+\usepackage{colortbl}
+
+% PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% PACKAGES FOR REFERENCES & BIBLIOGRAPHY
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
+\usepackage{cleveref}
+\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{abbrvnat} % You may use a different style adapted to your field
+
+% OTHER PACKAGES
+\usepackage{pdfpages} % To include a pdf file
+\usepackage{afterpage}
+\usepackage{lipsum} % DUMMY PACKAGE
+\usepackage{fancyhdr} % For the headers
+\fancyhf{}
+
+% Input of configuration file. Do not change config.tex file unless you really know what you are doing. 
+\input{Configuration_Files/config}
+
+%----------------------------------------------------------------------------
+%	NEW COMMANDS DEFINED
+%----------------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    urlcolor=blue,
+}
+\usepackage{listings}  % Package for code formatting
+\usepackage{xcolor}    % For color customization
+
+% Define C++ syntax highlighting
+\lstdefinestyle{cppStyle}{
+    language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    frame=single,  % Add a border around the code
+    breaklines=true,  % Enable line wrapping
+    captionpos=b,  % Caption position (bottom)
+    showstringspaces=false
+}
+
+\lstdefinestyle{pythonStyle}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    frame=single,
+    breaklines=true
+}
+
+% EXAMPLES OF NEW COMMANDS
+\newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+
+\lstdefinestyle{pythonStyle}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{gray},
+    showstringspaces=false,
+    frame=single,
+    breaklines=true
+}
+
+%----------------------------------------------------------------------------
+%	BEGIN OF YOUR DOCUMENT
+%----------------------------------------------------------------------------
+
+\begin{document}
+
+\fancypagestyle{plain}{%
+\fancyhf{} % Clear all header and footer fields
+\fancyhead[RO,RE]{\thepage} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%----------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------
+
+\pagestyle{empty} % No page numbers
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the preamble pages
+
+\puttitle{
+	title=IOT Challenge 1 - Exercise 4, % Title of the thesis
+	name=Matteo Leonardo Luraghi, % Author Name and Surname
+	course=, % Study Programme (in Italian)
+	ID  = 10772886,  % Student ID number (numero di matricola)
+	academicyear={2024-25},  % Academic Year
+} % These info will be put into your Title page 
+
+%----------------------------------------------------------------------------
+%	PREAMBLE PAGES: ABSTRACT (inglese e italiano), EXECUTIVE SUMMARY
+%----------------------------------------------------------------------------
+\startpreamble
+\setcounter{page}{1} % Set page counter to 1
+
+%----------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES/SYMBOLS
+%----------------------------------------------------------------------------
+
+% TABLE OF CONTENTS
+\thispagestyle{empty}
+\tableofcontents % Table of contents 
+\thispagestyle{empty}
+\cleardoublepage
+
+%-------------------------------------------------------------------------
+%	THESIS MAIN TEXT
+%-------------------------------------------------------------------------
+% In the main text of your thesis you can write the chapters in two different ways:
+%
+%(1) As presented in this template you can write:
+%    \chapter{Title of the chapter}
+%    *body of the chapter*
+%
+%(2) You can write your chapter in a separated .tex file and then include it in the main file with the following command:
+%    \chapter{Title of the chapter}
+%    \input{chapter_file.tex}
+%
+% Especially for long thesis, we recommend you the second option.
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+% --------------------------------------------------------------------------
+% NUMBERED CHAPTERS % Regular chapters following
+% --------------------------------------------------------------------------
+
+\chapter{A: Find the lifetime of the system}
+
+When the sink node is placed at the fixed location $(x_s, y_s)=(20,20)$ the energy consumption for each sensor $E_s(x,y)$ for one cycle is:
+\begin{equation}
+E_s(x,y)=b*(E_c+E_{tx}(d)) \space [nJ]= b*(E_c+k*(\sqrt{(x-20)^2+(y-20)^2})^2 \space [nJ]
+\end{equation}
+
+Computing the formula for each sensor we obtain the following energy consumption:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Sensor (x, y)} & \textbf{Distance from Sink Node} & \textbf{Energy Consumption (mJ)} \\
+        \midrule
+        (1, 2)   & 26,17  & 1,47 \\
+        (10, 3)  & 19,72  & 0,88 \\
+        (4, 8)   & 20,00  & 0,90 \\
+        (15, 7)  & 13,93  & 0,49 \\
+        (6, 1)   & 23,60  & 1,21 \\
+        (9, 12)  & 13,60  & 0,47 \\
+        (14, 4)  & 17,09  & 0,68 \\
+        (3, 10)  & 19,72  & 0,88 \\
+        (7, 7)   & 18,38  & 0,78 \\
+        (12, 14) & 10,00  & 0,30 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The sensor with the highest energy consumption is the one located in $(1,2)$, so it will be the first to run out of battery after $\frac{5mJ}{1,47mJ}=3,4$ cycles, so the lifetime of the system is 3 cycles.
+
+\chapter{B: Find the optimal position of the sink}
+
+\section{Methodology}
+
+To determine the optimal sink node location, I evaluated all possible positions within the boundary formed by the given sensor coordinates. For each candidate position, I computed the maximum Euclidean distance to any sensor using:
+\begin{equation}
+d = \sqrt{(x_i - x_{sink})^2 + (y_i - y_{sink})^2}
+\end{equation}
+where $(x_i, y_i)$ represents the sensor coordinates and $(x_{sink}, y_{sink})$ is the candidate sink position.
+
+The optimal sink node position is chosen to minimize the maximum distance between the sink and any sensor in the network. This is important because the sensor that is farthest from the sink determines how long will the system last. The farther a sensor is from the sink, the more energy it uses to transmit data. By minimizing the distance to the farthest sensor, the system lifetime increases since the maximum energy spent during a cycle by the sensors decreases.
+
+The optimal sink node location wa computed as:
+$(x_{opt}, y_{opt}) = (6.9, 7.6)$
+
+\subsection{Code}
+I used the following python script to find the best location of the sink node:
+\lstinputlisting[style=pythonStyle]{exercise/opt.py}
+
+\newpage
+\section{Result Evaluation}
+The energy consumption of each sensor using the new position of the sink node is the following:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Sensor (x, y)} & \textbf{Distance from Sink Node} & \textbf{Energy Consumption (mJ)} \\
+        \midrule
+        (1, 2)   & 8,13  & 0,23 \\
+        (10, 3)  & 5,55  & 0,16 \\
+        (4, 8)   & 2,93  & 0,12 \\
+        (15, 7)  & 8,12  & 0,23 \\
+        (6, 1)   & 6,66  & 0,19 \\
+        (9, 12)  & 4,88  & 0,15 \\
+        (14, 4)  & 7,96  & 0,23 \\
+        (3, 10)  & 4,58  & 0,14 \\
+        (7, 7)   & 0,61  & 0,10 \\
+        (12, 14) & 8,18  & 0,23 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The sensors with the highest energy consumption in this case are the one located in $(1,2),(15,7),(14,4),(12,14)$, so they will be the first to run out of battery after \\ $\frac{5mJ}{0,23mJ}=21,74$ cycles, so the lifetime of the system is 21 cycles.
+
+\chapter{C: Discuss the trade-offs of a fixed sink versus a dynamically moving sink}
+
+Instead of using a fixed sink, implementing a dynamically moving sink comes with some drawbacks:
+\begin{itemize}
+    \item The sink node is typically more powerful than the sensors and remains active to receive parking status updates at any time. To ensure continuous operation, it should ideally be always powered rather than battery-operated. A moving sink makes this difficult to achieve.
+    \item A mobile sink requires an algorithm to dynamically optimize its position based on incoming messages. This involves computing the next best location and activating movement mechanisms, both of which consume significant energy.
+    \item For a moving sink to extend system lifetime, sensors must transmit at different time intervals. If all sensors send messages simultaneously, the sink would need to stay in a single optimal position to minimize the maximum distance. This setup could only improve system longevity if a reliable method is found to prevent the sink's battery from draining while sensors are transmitting, adding another layer of complexity and potential point of failure.
+\end{itemize}
+
+A fixed sink position is preferable, as it simplifies system design and allows the sink node to remain continuously powered.
+\cleardoublepage
+
+\end{document}
