@@ -7,10 +7,10 @@ Here you'll find all my solutions and documentation for the in-course challenges
 
 ## 📁 Contents
 
-- 🔧 [Challenge 1](#challenge-1) — [📂 Folder](challenge-1/)
-- 📡 [Challenge 2](#challenge-2) — [📂 Folder](challenge-2/)
-- 🔒 [Challenge 3](#challenge-3) — [📂 Folder](challenge-3/)
-- 🧠 [Homework](#homework) — [📂 Folder](homework/)
+- 🔧 [Challenge 1](#🔧-challenge-1) — [📂 Folder](challenge-1/)
+- 📡 [Challenge 2](#📡-challenge-2) — [📂 Folder](challenge-2/)
+- 🔒 [Challenge 3](#🔒-challenge-3) — [📂 Folder](challenge-3/)
+- 🧠 [Homework](#🧠-homework) — [📂 Folder](homework/)
 
 ---
 
@@ -22,8 +22,9 @@ The project also includes:
 - Computing the **duty-cycle** of the node
 - Estimating **energy consumption** for low-power operation analysis
 
-**Max Points:** 🎯 8/8  
-**Directory:** [challenge-1/](challenge-1/)
+📅 **Date:** March 11, 2025 → March 20, 2025  
+🎯 **Max Points:** 8  
+📂 **Directory:** [challenge-1/](challenge-1/)
 
 ---
 
@@ -33,9 +34,10 @@ The project also includes:
 This challenge focused on **network traffic analysis**. Given a `.pcapng` capture file (`challenge2.pcapng`), the task was to:
 - Analyze the traffic using **Wireshark** or basic **Python scripts**
 - Identify and interpret packets related to **CoAP** and **MQTT** protocols
-  
-**Max Points:** 🎯 8/8  
-**Directory:** [challenge-2/](challenge-2/)
+
+📅 **Date:** March 27, 2025 → April 6, 2025  
+🎯 **Max Points:** 8  
+📂 **Directory:** [challenge-2/](challenge-2/)
 
 ---
 
@@ -45,8 +47,9 @@ This challenge focused on **network traffic analysis**. Given a `.pcapng` captur
 _A short description of the challenge goes here._  
 (e.g., Creating a local control system using edge computing principles.)
 
-**Max Points:** 🎯 8/8  
-**Directory:** [challenge-3/](challenge-3/)
+📅 **Date:** April 15, 2025 → April 27, 2025   
+🎯 **Max Points:** 8  
+📂 **Directory:** [challenge-3/](challenge-3/)
 
 ---
 
@@ -56,8 +59,9 @@ _A short description of the challenge goes here._
 _A short description of the homework goes here._  
 (e.g., Design and simulate a complete IoT pipeline with cloud integration.)
 
-**Max Points:** 🎯 8/8  
-**Directory:** [homework/](homework/)
+📅 **Date:** May 13, 2025 → May 23, 2025  
+🎯 **Max Points:** 8  
+📂 **Directory:** [homework/](homework/)
 
 ---
 
