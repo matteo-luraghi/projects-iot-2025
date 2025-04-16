@@ -70,6 +70,6 @@ _A short description of the homework goes here._
 | Task          | Status  | Score  |
 |---------------|---------|--------|
 | Challenge 1   | ✅      | 7.0/8  |
-| Challenge 2   | ✅⏸️     | 7.2/8  |
+| Challenge 2   | ✅      | 7.2/8  |
 | Challenge 3   | ❌      | x/8    |
 | Homework      | ❌      | x/8    |
