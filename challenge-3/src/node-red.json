@@ -21,32 +21,40 @@
         "vt": "str"
       }
     ],
-    "repeat": "",
+    "repeat": "5",
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 160,
+    "x": 170,
     "y": 520,
-    "wires": [["80e68ce7fe63f3e3"]]
+    "wires": [
+      [
+        "80e68ce7fe63f3e3"
+      ]
+    ]
   },
   {
     "id": "37670eae7012fcd1",
     "type": "function",
     "z": "a106eac8a1737a17",
     "name": "prepare_http",
-    "func": "var random1 = Math.random()*50;\nvar random2 = Math.random()*20;\nvar API_KEY = \"QMECHRTGQGUSGSWI\";\n\nmsg.method = \"GET\";\nmsg.url = \"https://api.thingspeak.com/update?api_key=\"+API_KEY+\"&field1=\"+random1+\"&field2=\"+random2;\nreturn msg;",
+    "func": "const API_KEY = \"FCXGLY1PWN98FIA8\";\n\nconst ack_counter = flow.get(\"ack_counter\");\n\nmsg.method = \"GET\";\nmsg.url = \"https://api.thingspeak.com/update?api_key=\"+API_KEY+\"&field1=\"+ack_counter;\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
-    "x": 490,
-    "y": 260,
-    "wires": [["bcde5a5cd4bde506"]]
+    "x": 1030,
+    "y": 1400,
+    "wires": [
+      [
+        "bcde5a5cd4bde506"
+      ]
+    ]
   },
   {
     "id": "bcde5a5cd4bde506",
@@ -64,9 +72,13 @@
     "authType": "",
     "senderr": false,
     "headers": [],
-    "x": 710,
-    "y": 260,
-    "wires": [["f989d19e12ec1e9f"]]
+    "x": 1250,
+    "y": 1400,
+    "wires": [
+      [
+        "f989d19e12ec1e9f"
+      ]
+    ]
   },
   {
     "id": "80e68ce7fe63f3e3",
@@ -82,7 +94,13 @@
     "libs": [],
     "x": 350,
     "y": 520,
-    "wires": [["555fbe685845816d", "22ea7a7c710373e1", "486ac315b2860e90"]]
+    "wires": [
+      [
+        "555fbe685845816d",
+        "22ea7a7c710373e1",
+        "486ac315b2860e90"
+      ]
+    ]
   },
   {
     "id": "555fbe685845816d",
@@ -127,7 +145,7 @@
     "spec": "rfc",
     "sep": ",",
     "hdrin": "",
-    "hdrout": "none",
+    "hdrout": "once",
     "multi": "one",
     "ret": "\\r\\n",
     "temp": "No.,ID,TIMESTAMP",
@@ -137,7 +155,12 @@
     "include_null_values": "",
     "x": 900,
     "y": 460,
-    "wires": [["7a2921c4bbfbf560", "a2140ee3ebcbbbd4"]]
+    "wires": [
+      [
+        "7a2921c4bbfbf560",
+        "a2140ee3ebcbbbd4"
+      ]
+    ]
   },
   {
     "id": "7a2921c4bbfbf560",
@@ -171,7 +194,11 @@
     "libs": [],
     "x": 670,
     "y": 460,
-    "wires": [["7fbbe165464a3525"]]
+    "wires": [
+      [
+        "7fbbe165464a3525"
+      ]
+    ]
   },
   {
     "id": "a2140ee3ebcbbbd4",
@@ -186,7 +213,9 @@
     "encoding": "utf8",
     "x": 1140,
     "y": 460,
-    "wires": [[]]
+    "wires": [
+      []
+    ]
   },
   {
     "id": "f3f84222baa95c08",
@@ -203,7 +232,11 @@
     "inputs": 0,
     "x": 160,
     "y": 660,
-    "wires": [["2b96f66c9d24bc5c"]]
+    "wires": [
+      [
+        "2b96f66c9d24bc5c"
+      ]
+    ]
   },
   {
     "id": "2b96f66c9d24bc5c",
@@ -219,7 +252,12 @@
     "libs": [],
     "x": 210,
     "y": 740,
-    "wires": [["6877d52f3b393c0b", "f750f1e3209ba4f1"]]
+    "wires": [
+      [
+        "6877d52f3b393c0b",
+        "f750f1e3209ba4f1"
+      ]
+    ]
   },
   {
     "id": "6877d52f3b393c0b",
@@ -240,23 +278,6 @@
     "wires": []
   },
   {
-    "id": "f989d19e12ec1e9f",
-    "type": "debug",
-    "z": "a106eac8a1737a17",
-    "name": "debug 1",
-    "active": true,
-    "tosidebar": true,
-    "console": false,
-    "tostatus": false,
-    "complete": "payload",
-    "targetType": "msg",
-    "statusVal": "",
-    "statusType": "auto",
-    "x": 940,
-    "y": 260,
-    "wires": []
-  },
-  {
     "id": "921bbdbc61c0a598",
     "type": "csv",
     "z": "a106eac8a1737a17",
@@ -274,7 +295,11 @@
     "include_null_values": "",
     "x": 670,
     "y": 800,
-    "wires": [["979db5a777582686"]]
+    "wires": [
+      [
+        "979db5a777582686"
+      ]
+    ]
   },
   {
     "id": "08879442bbe68a8a",
@@ -290,7 +315,11 @@
     "allProps": false,
     "x": 600,
     "y": 740,
-    "wires": [["921bbdbc61c0a598"]]
+    "wires": [
+      [
+        "921bbdbc61c0a598"
+      ]
+    ]
   },
   {
     "id": "979db5a777582686",
@@ -306,7 +335,12 @@
     "libs": [],
     "x": 850,
     "y": 740,
-    "wires": [["66f243d170b80870", "3efcbe223d1d2a10"]]
+    "wires": [
+      [
+        "66f243d170b80870",
+        "3efcbe223d1d2a10"
+      ]
+    ]
   },
   {
     "id": "66f243d170b80870",
@@ -347,9 +381,16 @@
     "checkall": "true",
     "repair": false,
     "outputs": 2,
-    "x": 150,
-    "y": 960,
-    "wires": [["df38f608d384815b"], []]
+    "x": 90,
+    "y": 1120,
+    "wires": [
+      [
+        "df38f608d384815b"
+      ],
+      [
+        "8ef5e07e19313fd7"
+      ]
+    ]
   },
   {
     "id": "3efcbe223d1d2a10",
@@ -365,7 +406,11 @@
     "libs": [],
     "x": 1130,
     "y": 800,
-    "wires": [["b553a08df92ee92a"]]
+    "wires": [
+      [
+        "b553a08df92ee92a"
+      ]
+    ]
   },
   {
     "id": "f750f1e3209ba4f1",
@@ -391,7 +436,14 @@
     "outputs": 2,
     "x": 400,
     "y": 740,
-    "wires": [["08879442bbe68a8a"], ["df8607a03add0341"]]
+    "wires": [
+      [
+        "08879442bbe68a8a"
+      ],
+      [
+        "df8607a03add0341"
+      ]
+    ]
   },
   {
     "id": "df38f608d384815b",
@@ -406,8 +458,12 @@
     "finalize": "",
     "libs": [],
     "x": 400,
-    "y": 940,
-    "wires": [["c5bd3a77a29dc223"]]
+    "y": 1080,
+    "wires": [
+      [
+        "c5bd3a77a29dc223"
+      ]
+    ]
   },
   {
     "id": "c5bd3a77a29dc223",
@@ -422,8 +478,13 @@
     "addname": "",
     "property": "messages_to_send",
     "x": 650,
-    "y": 940,
-    "wires": [["6be41f156a8f8e1c", "a3648ffa56ed0c5b"]]
+    "y": 1040,
+    "wires": [
+      [
+        "6be41f156a8f8e1c",
+        "a3648ffa56ed0c5b"
+      ]
+    ]
   },
   {
     "id": "6be41f156a8f8e1c",
@@ -439,7 +500,7 @@
     "statusVal": "",
     "statusType": "auto",
     "x": 710,
-    "y": 1000,
+    "y": 1100,
     "wires": []
   },
   {
@@ -465,14 +526,18 @@
     "payloadType": "date",
     "x": 140,
     "y": 380,
-    "wires": [["cf76b5d1017ae348"]]
+    "wires": [
+      [
+        "cf76b5d1017ae348"
+      ]
+    ]
   },
   {
     "id": "cf76b5d1017ae348",
     "type": "function",
     "z": "a106eac8a1737a17",
     "name": "RESET",
-    "func": "flow.set(\"limiter\", 0);\nflow.set(\"message_number\", 0);\nreturn msg;",
+    "func": "flow.set(\"limiter\", 0);\nflow.set(\"message_number\", 0);\nflow.set(\"temperature_number\", 0);\nflow.set(\"ack_counter\", 0);\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,
@@ -481,7 +546,9 @@
     "libs": [],
     "x": 340,
     "y": 380,
-    "wires": [[]]
+    "wires": [
+      []
+    ]
   },
   {
     "id": "ecb001d96793b399",
@@ -498,7 +565,7 @@
     "expiry": "",
     "broker": "9deda93e0ff0b429",
     "x": 1330,
-    "y": 940,
+    "y": 1040,
     "wires": []
   },
   {
@@ -514,8 +581,12 @@
     "finalize": "",
     "libs": [],
     "x": 880,
-    "y": 940,
-    "wires": [["204d1037cdacb648"]]
+    "y": 1040,
+    "wires": [
+      [
+        "204d1037cdacb648"
+      ]
+    ]
   },
   {
     "id": "204d1037cdacb648",
@@ -535,8 +606,13 @@
     "allowrate": false,
     "outputs": 1,
     "x": 1130,
-    "y": 940,
-    "wires": [["ecb001d96793b399", "8fb75e8080ec238a"]]
+    "y": 1040,
+    "wires": [
+      [
+        "ecb001d96793b399",
+        "8fb75e8080ec238a"
+      ]
+    ]
   },
   {
     "id": "df8607a03add0341",
@@ -552,7 +628,11 @@
     "libs": [],
     "x": 410,
     "y": 800,
-    "wires": [["1b4fd1e4e0fc4788"]]
+    "wires": [
+      [
+        "1b4fd1e4e0fc4788"
+      ]
+    ]
   },
   {
     "id": "1b4fd1e4e0fc4788",
@@ -584,8 +664,12 @@
     "finalize": "",
     "libs": [],
     "x": 1000,
-    "y": 1060,
-    "wires": [["c633bdf3cbd646e2"]]
+    "y": 1160,
+    "wires": [
+      [
+        "c633bdf3cbd646e2"
+      ]
+    ]
   },
   {
     "id": "c633bdf3cbd646e2",
@@ -603,8 +687,13 @@
     "repair": false,
     "outputs": 1,
     "x": 1210,
-    "y": 1060,
-    "wires": [["add6b4d7106e2926", "6c394f5225b64bc9"]]
+    "y": 1160,
+    "wires": [
+      [
+        "add6b4d7106e2926",
+        "6c394f5225b64bc9"
+      ]
+    ]
   },
   {
     "id": "add6b4d7106e2926",
@@ -645,8 +734,10 @@
     "useDifferentColor": false,
     "className": "",
     "x": 1400,
-    "y": 1060,
-    "wires": [[]]
+    "y": 1160,
+    "wires": [
+      []
+    ]
   },
   {
     "id": "6c394f5225b64bc9",
@@ -661,8 +752,12 @@
     "finalize": "",
     "libs": [],
     "x": 1280,
-    "y": 1140,
-    "wires": [["ea2158b808ecb71f"]]
+    "y": 1240,
+    "wires": [
+      [
+        "ea2158b808ecb71f"
+      ]
+    ]
   },
   {
     "id": "ea2158b808ecb71f",
@@ -672,7 +767,7 @@
     "spec": "rfc",
     "sep": ",",
     "hdrin": "",
-    "hdrout": "none",
+    "hdrout": "once",
     "multi": "one",
     "ret": "\\r\\n",
     "temp": "No.,LONG,LT,MEAN_VALUE,TYPE,UNIT,DESCRIPTION",
@@ -681,8 +776,12 @@
     "include_empty_strings": "",
     "include_null_values": "",
     "x": 1500,
-    "y": 1140,
-    "wires": [["1f6c342585b387f3"]]
+    "y": 1240,
+    "wires": [
+      [
+        "1f6c342585b387f3"
+      ]
+    ]
   },
   {
     "id": "1f6c342585b387f3",
@@ -695,9 +794,91 @@
     "createDir": true,
     "overwriteFile": "false",
     "encoding": "utf8",
-    "x": 1700,
-    "y": 1140,
-    "wires": [[]]
+    "x": 1580,
+    "y": 1300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "8ef5e07e19313fd7",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_csv",
+    "func": "// get the current ack counter or initialize it to 0\nlet ack_counter = flow.get(\"ack_counter\") || 0;\nack_counter += 1;\n// update the ack counter\nflow.set(\"ack_counter\", ack_counter);\n\nconst info = msg.payload.Info;\n\nconst type = info.split(\"(\")[0];\n\nconst newPayload = [\n    ack_counter,\n    Date.now(),\n    flow.get(\"N\"),\n    type\n]\n\nmsg.payload = newPayload;\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 410,
+    "y": 1400,
+    "wires": [
+      [
+        "54b031168edb9ccb"
+      ]
+    ]
+  },
+  {
+    "id": "54b031168edb9ccb",
+    "type": "csv",
+    "z": "a106eac8a1737a17",
+    "name": "convert_to_csv",
+    "spec": "rfc",
+    "sep": ",",
+    "hdrin": "",
+    "hdrout": "once",
+    "multi": "one",
+    "ret": "\\r\\n",
+    "temp": "No.,TIMESTAMP,SUB_ID,MSG_TYPE",
+    "skip": "0",
+    "strings": true,
+    "include_empty_strings": "",
+    "include_null_values": "",
+    "x": 620,
+    "y": 1400,
+    "wires": [
+      [
+        "4922187cbaf6b0aa"
+      ]
+    ]
+  },
+  {
+    "id": "4922187cbaf6b0aa",
+    "type": "file",
+    "z": "a106eac8a1737a17",
+    "name": "save_csv",
+    "filename": "/home/matteo/Coding/projects-iot-2025/challenge-3/deliverables/ack_log.csv",
+    "filenameType": "str",
+    "appendNewline": false,
+    "createDir": true,
+    "overwriteFile": "false",
+    "encoding": "utf8",
+    "x": 820,
+    "y": 1400,
+    "wires": [
+      [
+        "37670eae7012fcd1"
+      ]
+    ]
+  },
+  {
+    "id": "f989d19e12ec1e9f",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "sent_http",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1480,
+    "y": 1400,
+    "wires": []
   },
   {
     "id": "9deda93e0ff0b429",
