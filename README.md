@@ -41,12 +41,18 @@ This challenge focused on **network traffic analysis**. Given a `.pcapng` captur
 
 ---
 
-## 🔒 Challenge 3
+## 🔁 Challenge 3
 
 **Description:**  
-_A short description of the challenge goes here._  
-(e.g., Creating a local control system using edge computing principles.)
-
+This challenge focused on local MQTT message processing and flow control using Node-RED. The task was to:
+- Periodically publish random IDs with timestamps to a local Mosquitto broker
+- Log published messages into a CSV file (`id_log.csv`)
+- Subscribe to the same topic and process each received message by:
+  - Cross-referencing it with a dataset (`challenge3.csv`)
+  - Re-publishing messages or logging ACKs depending on the matched entry
+  - Plotting temperature data (in °F) on a chart and saving it in `filtered_publish.csv`
+  - Sending ACK counters to ThingSpeak using the HTTP API
+        
 📅 **Date:** April 15, 2025 → April 27, 2025   
 🎯 **Max Points:** 8  
 📂 **Directory:** [challenge-3/](challenge-3/)
