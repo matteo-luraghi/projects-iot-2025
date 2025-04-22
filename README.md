@@ -44,7 +44,7 @@ This challenge focused on **network traffic analysis**. Given a `.pcapng` captur
 ## 🔁 Challenge 3
 
 **Description:**  
-This challenge focused on local MQTT message processing and flow control using Node-RED. The task was to:
+This challenge focused on local MQTT message processing and flow control using Node-RED, the task was to:
 - Periodically publish random IDs with timestamps to a local Mosquitto broker
 - Log published messages into a CSV file (`id_log.csv`)
 - Subscribe to the same topic and process each received message by:
