@@ -1,0 +1,1021 @@
+[
+  {
+    "id": "a106eac8a1737a17",
+    "type": "tab",
+    "label": "Flow 1",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "97603eb7de7d51ef",
+    "type": "inject",
+    "z": "a106eac8a1737a17",
+    "name": "challenge3_flow",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "5",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 130,
+    "y": 520,
+    "wires": [
+      [
+        "80e68ce7fe63f3e3"
+      ]
+    ]
+  },
+  {
+    "id": "37670eae7012fcd1",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_http",
+    "func": "const API_KEY = \"V2NOF60HC492ZJW0\";\n\nconst ack_counter = flow.get(\"ack_counter\");\n\n// send the global ack counter to thingspeak\nmsg.method = \"GET\";\nmsg.url = \"https://api.thingspeak.com/update?api_key=\"+API_KEY+\"&field1=\"+ack_counter;\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1030,
+    "y": 1400,
+    "wires": [
+      [
+        "bcde5a5cd4bde506"
+      ]
+    ]
+  },
+  {
+    "id": "bcde5a5cd4bde506",
+    "type": "http request",
+    "z": "a106eac8a1737a17",
+    "name": "",
+    "method": "use",
+    "ret": "txt",
+    "paytoqs": "ignore",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 1210,
+    "y": 1400,
+    "wires": [
+      [
+        "f989d19e12ec1e9f"
+      ]
+    ]
+  },
+  {
+    "id": "80e68ce7fe63f3e3",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_mqtt",
+    "func": "// 30001 in order to get numbers in [0, 30000]\n// extreme included\nvar id = Math.floor(Math.random()*30001);\n\n// set the mqtt topic\nmsg.topic = \"challenge3/id_generator\";\n\n// set the mqtt payload\nmsg.payload = {\n    \"id\": id,\n    \"timestamp\": Date.now()\n};\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 350,
+    "y": 520,
+    "wires": [
+      [
+        "555fbe685845816d",
+        "22ea7a7c710373e1",
+        "486ac315b2860e90"
+      ]
+    ]
+  },
+  {
+    "id": "555fbe685845816d",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "mqtt_id_message",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 690,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "22ea7a7c710373e1",
+    "type": "mqtt out",
+    "z": "a106eac8a1737a17",
+    "name": "",
+    "topic": "challenge3/id_generator",
+    "qos": "",
+    "retain": "",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "9deda93e0ff0b429",
+    "x": 710,
+    "y": 520,
+    "wires": []
+  },
+  {
+    "id": "7fbbe165464a3525",
+    "type": "csv",
+    "z": "a106eac8a1737a17",
+    "name": "convert_to_csv",
+    "spec": "rfc",
+    "sep": ",",
+    "hdrin": "",
+    "hdrout": "once",
+    "multi": "one",
+    "ret": "\\r\\n",
+    "temp": "No.,ID,TIMESTAMP",
+    "skip": "0",
+    "strings": true,
+    "include_empty_strings": "",
+    "include_null_values": "",
+    "x": 900,
+    "y": 460,
+    "wires": [
+      [
+        "7a2921c4bbfbf560",
+        "a2140ee3ebcbbbd4"
+      ]
+    ]
+  },
+  {
+    "id": "7a2921c4bbfbf560",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "d": true,
+    "name": "csv_line_1",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1150,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "486ac315b2860e90",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_csv",
+    "func": "// get the current number of execution\n// default to 1 if attribute \"message_number\" not set\nconst count = flow.get(\"message_number\") || 1;\n\n// create the CSV line\nconst newPayload = [\n    count,\n    msg.payload.id,\n    msg.payload.timestamp\n];\n\n// pass the line to the next component\nmsg.payload = newPayload;\n\n// increment the \"message_number\" attribute by 1\nflow.set(\"message_number\", count + 1);\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 670,
+    "y": 460,
+    "wires": [
+      [
+        "7fbbe165464a3525"
+      ]
+    ]
+  },
+  {
+    "id": "a2140ee3ebcbbbd4",
+    "type": "file",
+    "z": "a106eac8a1737a17",
+    "name": "save_csv_id_log",
+    "filename": "/home/matteo/Coding/projects-iot-2025/challenge-3/deliverables/id_log.csv",
+    "filenameType": "str",
+    "appendNewline": false,
+    "createDir": true,
+    "overwriteFile": "false",
+    "encoding": "utf8",
+    "x": 1170,
+    "y": 460,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f3f84222baa95c08",
+    "type": "mqtt in",
+    "z": "a106eac8a1737a17",
+    "name": "",
+    "topic": "challenge3/id_generator",
+    "qos": "2",
+    "datatype": "auto-detect",
+    "broker": "9deda93e0ff0b429",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 140,
+    "y": 660,
+    "wires": [
+      [
+        "2b96f66c9d24bc5c"
+      ]
+    ]
+  },
+  {
+    "id": "2b96f66c9d24bc5c",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "compute_N",
+    "func": "// get the current number of processed messages\n// or initialize this number to 0\nconst counter = flow.get(\"limiter\") || 0;\n// increase the number of processed messages\nflow.set(\"limiter\", counter + 1);\n\n// compute the ID to look for in the csv file\nconst id = msg.payload.id;\n\nconst result = id % 7711;\n\n// save the id in the variable N for later use\nflow.set(\"N\", result);\n\nmsg.payload = result;\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 210,
+    "y": 740,
+    "wires": [
+      [
+        "6877d52f3b393c0b",
+        "f750f1e3209ba4f1"
+      ]
+    ]
+  },
+  {
+    "id": "6877d52f3b393c0b",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "d": true,
+    "name": "N",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 190,
+    "y": 800,
+    "wires": []
+  },
+  {
+    "id": "921bbdbc61c0a598",
+    "type": "csv",
+    "z": "a106eac8a1737a17",
+    "name": "convert_to_js",
+    "spec": "rfc",
+    "sep": ",",
+    "hdrin": true,
+    "hdrout": "none",
+    "multi": "mult",
+    "ret": "\\r\\n",
+    "temp": "",
+    "skip": "0",
+    "strings": true,
+    "include_empty_strings": "",
+    "include_null_values": "",
+    "x": 910,
+    "y": 800,
+    "wires": [
+      [
+        "979db5a777582686"
+      ]
+    ]
+  },
+  {
+    "id": "08879442bbe68a8a",
+    "type": "file in",
+    "z": "a106eac8a1737a17",
+    "name": "read_challenge3.csv",
+    "filename": "/home/matteo/Coding/projects-iot-2025/challenge-3/docs/challenge3.csv",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "utf8",
+    "allProps": false,
+    "x": 840,
+    "y": 740,
+    "wires": [
+      [
+        "921bbdbc61c0a598"
+      ]
+    ]
+  },
+  {
+    "id": "979db5a777582686",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "get_csv_line",
+    "func": "// get the id N computed upon message reception\nconst n = flow.get(\"N\");\n\n// get the challenge3.csv data\nconst data = msg.payload;\n\n// fix the offset to extract the correct\n// line from the challenge3.csv file\nmsg.payload = data[n - 1];\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1130,
+    "y": 740,
+    "wires": [
+      [
+        "66f243d170b80870",
+        "3efcbe223d1d2a10"
+      ]
+    ]
+  },
+  {
+    "id": "66f243d170b80870",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "csv_line_2",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1190,
+    "y": 800,
+    "wires": []
+  },
+  {
+    "id": "b553a08df92ee92a",
+    "type": "switch",
+    "z": "a106eac8a1737a17",
+    "name": "",
+    "property": "branch",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "PUBLISH",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "ACK",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 110,
+    "y": 1140,
+    "wires": [
+      [
+        "df38f608d384815b"
+      ],
+      [
+        "8ef5e07e19313fd7"
+      ]
+    ]
+  },
+  {
+    "id": "3efcbe223d1d2a10",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "direct_to_branch",
+    "func": "// get the INFO attribute of the message\nconst info = msg.payload.Info;\n\n// set the msg.branch attribute to \n// PUBLISH -> if the message is a publish message\n// ACK -> if the message is an ack message\n// IGNORED -> in any other case\n// to take the correct branch (none if IGNORED)\nif (info.includes(\"Publish Message\")) {\n    msg.branch = \"PUBLISH\";\n}\nelse if (info.includes(\"Ack\")) {\n    msg.branch = \"ACK\";\n}\nelse {\n    msg.branch = \"IGNORED\";\n}\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1470,
+    "y": 760,
+    "wires": [
+      [
+        "b553a08df92ee92a"
+      ]
+    ]
+  },
+  {
+    "id": "f750f1e3209ba4f1",
+    "type": "switch",
+    "z": "a106eac8a1737a17",
+    "name": "LIMITER",
+    "property": "limiter",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "lte",
+        "v": "80",
+        "vt": "num"
+      },
+      {
+        "t": "gt",
+        "v": "80",
+        "vt": "num"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 400,
+    "y": 740,
+    "wires": [
+      [
+        "08879442bbe68a8a"
+      ],
+      [
+        "df8607a03add0341"
+      ]
+    ]
+  },
+  {
+    "id": "df38f608d384815b",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_mqtt_publish_messages",
+    "func": "// variable to store all the messages to be sent\nconst results = []\n\n// get the message\nconst data = msg.payload;\n\n// first filter by Publish Message\nconst splitted = msg.payload.Info\n    .split(\"Publish Message \");\n\n// extract the topics inside of the squared parenthesis\nconst topics = splitted.map(str => { \n    const match = str.match(/\\[(.*?)\\]/); \n    return match ? match[1] : null; \n    })\n    .filter(Boolean)\n\n// for each topic add the message to be sent\n// to results\ntopics.forEach(topic => {\n    const payload = {\n        // timestamp will be generated when publishing\n        \"timestamp\": null,\n        // id obtained from the subscription\n        \"id\": flow.get(\"N\"),\n        \"topic\": topic,\n        // extract the payload from mqtt message\n        \"payload\": data.Payload\n    }\n\n    results.push(payload);\n});\n// save the results in the message\nmsg.messages_to_send = results;\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 400,
+    "y": 1100,
+    "wires": [
+      [
+        "c5bd3a77a29dc223",
+        "a72ca3b55ffa6be3"
+      ]
+    ]
+  },
+  {
+    "id": "c5bd3a77a29dc223",
+    "type": "split",
+    "z": "a106eac8a1737a17",
+    "name": "divide_messages",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "property": "messages_to_send",
+    "x": 670,
+    "y": 1040,
+    "wires": [
+      [
+        "204d1037cdacb648"
+      ]
+    ]
+  },
+  {
+    "id": "7ac3d2eda004a179",
+    "type": "inject",
+    "z": "a106eac8a1737a17",
+    "name": "reset flow",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 120,
+    "wires": [
+      [
+        "cf76b5d1017ae348"
+      ]
+    ]
+  },
+  {
+    "id": "cf76b5d1017ae348",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "RESET",
+    "func": "flow.set(\"limiter\", 0);\nflow.set(\"message_number\", 0);\nflow.set(\"temperature_number\", 0);\nflow.set(\"ack_counter\", 0);\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 120,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "ecb001d96793b399",
+    "type": "mqtt out",
+    "z": "a106eac8a1737a17",
+    "name": "publish_message_to_specific_topic",
+    "topic": "",
+    "qos": "",
+    "retain": "",
+    "respTopic": "",
+    "contentType": "",
+    "userProps": "",
+    "correl": "",
+    "expiry": "",
+    "broker": "9deda93e0ff0b429",
+    "x": 1660,
+    "y": 1040,
+    "wires": []
+  },
+  {
+    "id": "a3648ffa56ed0c5b",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_mqtt_publish_to_specific_topic",
+    "func": "// prepare the mqtt message with topic and payload\nmsg.topic = msg.messages_to_send.topic;\nmsg.payload = msg.messages_to_send;\n// update the timestamp with the publishing time\nmsg.payload.timestamp = Date.now();\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1260,
+    "y": 1040,
+    "wires": [
+      [
+        "ecb001d96793b399",
+        "8fb75e8080ec238a",
+        "5ab42927647e7bc0"
+      ]
+    ]
+  },
+  {
+    "id": "204d1037cdacb648",
+    "type": "delay",
+    "z": "a106eac8a1737a17",
+    "name": "rate_limiter",
+    "pauseType": "rate",
+    "timeout": "5",
+    "timeoutUnits": "seconds",
+    "rate": "4",
+    "nbRateUnits": "1",
+    "rateUnits": "minute",
+    "randomFirst": "1",
+    "randomLast": "5",
+    "randomUnits": "seconds",
+    "drop": false,
+    "allowrate": false,
+    "outputs": 1,
+    "x": 930,
+    "y": 1040,
+    "wires": [
+      [
+        "a3648ffa56ed0c5b"
+      ]
+    ]
+  },
+  {
+    "id": "df8607a03add0341",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "display_end_message",
+    "func": "// display a message in the debug window\n// telling that the flow correctly processed 80\n// messages and will now not process the following\n// incoming messages\nmsg.payload = \"LIMIT REACHED\";\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 520,
+    "y": 800,
+    "wires": [
+      [
+        "1b4fd1e4e0fc4788"
+      ]
+    ]
+  },
+  {
+    "id": "1b4fd1e4e0fc4788",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "ENDED",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 540,
+    "y": 860,
+    "wires": []
+  },
+  {
+    "id": "8fb75e8080ec238a",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "parse_farenheit",
+    "func": "let info = {};\n\n// try to load the message payload\n// if success then check if the message contains\n// a fahrenheit temperature\ntry {\n    info = JSON.parse(msg.payload.payload);\n} catch (error) {\n    // set the flag to take the correct branch\n    msg.temp_check = false;\n    msg.payload = null;\n    return msg;\n}\n\n// check if it's a fahrenheit temperature\nif (info.type === \"temperature\" \n    && info.unit === \"F\") {\n    // set flag to take the correct branch\n    msg.temp_check = true;\n    // save the message payload\n    msg.info = info;\n    // set the topic for the chart\n    msg.topic = \"temperature\";\n    // compute the temperature to save in the chart\n    msg.payload = (info.range[0] + info.range[1] ) / 2;\n}\nelse {\n    // set the flag to take the correct branch\n    msg.temp_check = false;\n    msg.payload = null;\n}\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1180,
+    "y": 1160,
+    "wires": [
+      [
+        "c633bdf3cbd646e2"
+      ]
+    ]
+  },
+  {
+    "id": "c633bdf3cbd646e2",
+    "type": "switch",
+    "z": "a106eac8a1737a17",
+    "name": "add_to_chart_if_fahrenheit",
+    "property": "temp_check",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "true"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 1440,
+    "y": 1160,
+    "wires": [
+      [
+        "add6b4d7106e2926",
+        "6c394f5225b64bc9"
+      ]
+    ]
+  },
+  {
+    "id": "add6b4d7106e2926",
+    "type": "ui_chart",
+    "z": "a106eac8a1737a17",
+    "name": "",
+    "group": "7b699005c4e28dfe",
+    "order": 0,
+    "width": 0,
+    "height": 0,
+    "label": "Temperature (F)",
+    "chartType": "line",
+    "legend": "true",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": true,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": 1,
+    "removeOlderPoints": "",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "outputs": 1,
+    "useDifferentColor": false,
+    "className": "",
+    "x": 1780,
+    "y": 1160,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "6c394f5225b64bc9",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_csv",
+    "func": "// get the current counter of temperature measurements in fahrenheit\n// or initialize it to 1\nconst temp_number = flow.get(\"temperature_number\") || 1;\n\n// get the message payload\nconst info = msg.info;\n// get the fahrenheit temperature to send in the message\nconst mean_temp = msg.payload;\n\n// create the payload for the new message\nconst newPayload = [\n    temp_number,\n    info.long,\n    info.lat,\n    mean_temp,\n    info.type,\n    info.unit,\n    info.description\n];\n\nmsg.payload = newPayload;\n\n// increase the number of temperature in fahrenheit\n// processed by 1\nflow.set(\"temperature_number\", temp_number + 1);\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1460,
+    "y": 1240,
+    "wires": [
+      [
+        "ea2158b808ecb71f"
+      ]
+    ]
+  },
+  {
+    "id": "ea2158b808ecb71f",
+    "type": "csv",
+    "z": "a106eac8a1737a17",
+    "name": "convert_to_csv",
+    "spec": "rfc",
+    "sep": ",",
+    "hdrin": "",
+    "hdrout": "once",
+    "multi": "one",
+    "ret": "\\r\\n",
+    "temp": "No.,LONG,LT,MEAN_VALUE,TYPE,UNIT,DESCRIPTION",
+    "skip": "0",
+    "strings": true,
+    "include_empty_strings": "",
+    "include_null_values": "",
+    "x": 1660,
+    "y": 1240,
+    "wires": [
+      [
+        "1f6c342585b387f3"
+      ]
+    ]
+  },
+  {
+    "id": "1f6c342585b387f3",
+    "type": "file",
+    "z": "a106eac8a1737a17",
+    "name": "save_csv_filtered_pubs",
+    "filename": "/home/matteo/Coding/projects-iot-2025/challenge-3/deliverables/filtered_pubs.csv",
+    "filenameType": "str",
+    "appendNewline": false,
+    "createDir": true,
+    "overwriteFile": "false",
+    "encoding": "utf8",
+    "x": 1750,
+    "y": 1300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "8ef5e07e19313fd7",
+    "type": "function",
+    "z": "a106eac8a1737a17",
+    "name": "prepare_csv",
+    "func": "// get the current ack counter or initialize it to 0\nlet ack_counter = flow.get(\"ack_counter\") || 0;\n// increase the counter by 1\nack_counter += 1;\n// update the ack counter in the flow variable\nflow.set(\"ack_counter\", ack_counter);\n\n// get the message informations to process the type of ACK\nconst info = msg.payload.Info;\n\nconst type = info.split(\"(\")[0];\n\n// create the payload\nconst newPayload = [\n    ack_counter,\n    Date.now(),\n    flow.get(\"N\"),\n    type\n]\n\nmsg.payload = newPayload;\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 410,
+    "y": 1400,
+    "wires": [
+      [
+        "54b031168edb9ccb"
+      ]
+    ]
+  },
+  {
+    "id": "54b031168edb9ccb",
+    "type": "csv",
+    "z": "a106eac8a1737a17",
+    "name": "convert_to_csv",
+    "spec": "rfc",
+    "sep": ",",
+    "hdrin": "",
+    "hdrout": "once",
+    "multi": "one",
+    "ret": "\\r\\n",
+    "temp": "No.,TIMESTAMP,SUB_ID,MSG_TYPE",
+    "skip": "0",
+    "strings": true,
+    "include_empty_strings": "",
+    "include_null_values": "",
+    "x": 620,
+    "y": 1400,
+    "wires": [
+      [
+        "4922187cbaf6b0aa"
+      ]
+    ]
+  },
+  {
+    "id": "4922187cbaf6b0aa",
+    "type": "file",
+    "z": "a106eac8a1737a17",
+    "name": "save_csv_ack_log",
+    "filename": "/home/matteo/Coding/projects-iot-2025/challenge-3/deliverables/ack_log.csv",
+    "filenameType": "str",
+    "appendNewline": false,
+    "createDir": true,
+    "overwriteFile": "false",
+    "encoding": "utf8",
+    "x": 830,
+    "y": 1400,
+    "wires": [
+      [
+        "37670eae7012fcd1"
+      ]
+    ]
+  },
+  {
+    "id": "f989d19e12ec1e9f",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "sent_http_request_to_thingspeak",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1460,
+    "y": 1400,
+    "wires": []
+  },
+  {
+    "id": "035bf54e6e6e8adc",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "Reset the flow variables",
+    "info": "Branch that when activated resets\nthe flow variables to 0",
+    "x": 140,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "57f028bfd2e7c3af",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "Challenge 3 flow",
+    "info": "",
+    "x": 120,
+    "y": 360,
+    "wires": []
+  },
+  {
+    "id": "fb3c287713c2fe28",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "LIMITER will let messages pass until 80 messages are processed",
+    "info": "",
+    "x": 570,
+    "y": 700,
+    "wires": []
+  },
+  {
+    "id": "f6e0206bcf068e58",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "PUBLISH branch",
+    "info": "",
+    "x": 340,
+    "y": 1140,
+    "wires": []
+  },
+  {
+    "id": "24791dc778fd048a",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "ACK branch",
+    "info": "",
+    "x": 410,
+    "y": 1360,
+    "wires": []
+  },
+  {
+    "id": "e55de3ce7eaa677a",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "Limit 4 messages per minute",
+    "info": "",
+    "x": 980,
+    "y": 1000,
+    "wires": []
+  },
+  {
+    "id": "1c44effe5eec38db",
+    "type": "comment",
+    "z": "a106eac8a1737a17",
+    "name": "pass only if fahrenheit temperature",
+    "info": "",
+    "x": 1460,
+    "y": 1120,
+    "wires": []
+  },
+  {
+    "id": "5ab42927647e7bc0",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "sending_message",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1610,
+    "y": 980,
+    "wires": []
+  },
+  {
+    "id": "a72ca3b55ffa6be3",
+    "type": "debug",
+    "z": "a106eac8a1737a17",
+    "name": "messages_to_send",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "messages_to_send",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 630,
+    "y": 1160,
+    "wires": []
+  },
+  {
+    "id": "9deda93e0ff0b429",
+    "type": "mqtt-broker",
+    "name": "challenge-3",
+    "broker": "localhost",
+    "port": "1884",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": 4,
+    "keepalive": 60,
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthRetain": "false",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closeRetain": "false",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willRetain": "false",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  },
+  {
+    "id": "7b699005c4e28dfe",
+    "type": "ui_group",
+    "name": "challenge-3",
+    "tab": "087861440cd16ef6",
+    "order": 1,
+    "disp": true,
+    "width": 6,
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "087861440cd16ef6",
+    "type": "ui_tab",
+    "name": "Home",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  }
+]
