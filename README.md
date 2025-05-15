@@ -77,5 +77,5 @@ _A short description of the homework goes here._
 |---------------|---------|--------|
 | Challenge 1   | ✅      | 7.0/8  |
 | Challenge 2   | ✅      | 7.2/8  |
-| Challenge 3   | ❌      | x/8    |
+| Challenge 3   | ✅      | 7.6/8  |
 | Homework      | ❌      | x/8    |
