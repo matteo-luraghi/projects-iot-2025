@@ -65,6 +65,7 @@ This challenge focused on local MQTT message processing and flow control using N
 The homework focuses on designing a low-cost IoT system for real-time forklift tracking and monitoring within a logistics warehouse. The system needs to:
   - Localize forklifts in real time
   - Monitor their operational status, including daily distance traveled, maximum and average speed, and impact detection
+
 Additionally, the task involves:
   - Probability Mass Function (PMF) computation for persons detected in camera frames based on a Poisson distribution
   - Developing a consistent slot assignment for a monitoring system with 1 PAN coordinator and 3 camera nodes, optimizing for network efficiency
