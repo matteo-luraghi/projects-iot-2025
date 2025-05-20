@@ -20,6 +20,7 @@ def compute_prob_dist(r):
     distribution = {}
     for outcome in outcomes:
         # count how many slots were chosen exactly once
+        # such that there are no collisions in the same slot
         counts = [outcome.count(slot) for slot in range(r)]
         successes = sum(1 for c in counts if c == 1)
         distribution[successes] = distribution.get(successes, 0) + 1
