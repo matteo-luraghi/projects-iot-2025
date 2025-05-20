@@ -36,6 +36,8 @@ P0 = dist4.get(0, 0)
 num = 4 + sum(dist4.get(s, 0) * L[4 - s] for s in range(1, 4))
 # then L4 = num / (1 − P0)
 L[4] = num / (1 - P0)
+print("L4:")
+print(L[4])
 
 # for each initial frame size r1 compute E[T] and η
 results = []
