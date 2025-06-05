@@ -84,4 +84,6 @@ Additionally, the task involves:
 | Challenge 1   | ✅      | 7.0/8  |
 | Challenge 2   | ✅      | 7.2/8  |
 | Challenge 3   | ✅      | 7.6/8  |
-| Homework      | ❌      | x/8    |
+| Homework      | ✅      | 7.7/8  |
+
+🏆 **Total Score**: 29.5/32
